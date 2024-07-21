@@ -22,91 +22,91 @@ The test files are included in the repo already. They are available for YOU! The
 
 The test suites are run like so:
 
-Lua
+### Lua
 
 ```
 lua test.lua
 ```
 
-Python
+### Python
 
 ```
 python3 test.py
 ```
 
-JavaScript
+### JavaScript
 
 ```
 
 ```
 
-OCaml
+### OCaml
 
 ```
 
 ```
 
-Haskell
+### Haskell
 
 ```
 ghc ExercisesTest.hs && ./ExercisesTest
 ```
 
-TypeScript
+### TypeScript
 
 ```
 
 ```
 
-Java
+### Java
 
 ```
 
 ```
 
-Kotlin
+### Kotlin
 
 ```
 kotlin -J-ea test.kts
 ```
 
-Swift
+### Swift
 
 ```
 swift main.swift
 ```
 
-C
+### C
 
 ```
 g++ -o exercises test.c exercises.c && exercises
 ```
 
-C++
+### C++
 
 ```
 g++ -o exercises test.cpp exercises.cpp && exercises
 ```
 
-Rust
+### Rust
 
 ```
 cargo test
 ```
 
-Go
+### Go
 
 ```
 
 ```
 
-Gleam
+### Gleam
 
 ```
 
 ```
 
-Mojo
+### Mojo
 
 ```
 

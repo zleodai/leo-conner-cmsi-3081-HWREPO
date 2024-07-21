@@ -1,0 +1,13 @@
+{
+  "name": "exercises",
+  "version": "1.0.0",
+  "main": "exercises.js",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/exercises.test.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "JavaScript Homework Solutions"
+}
