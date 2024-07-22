@@ -97,7 +97,7 @@ cargo test
 ### Go
 
 ```
-
+go test exercises_test.go exercises.go
 ```
 
 ### Gleam
