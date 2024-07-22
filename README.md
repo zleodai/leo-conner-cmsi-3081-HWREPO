@@ -43,7 +43,7 @@ npm test
 ### OCaml
 
 ```
-
+ocamlc exercises.ml test.ml && ./a.out
 ```
 
 ### Haskell
