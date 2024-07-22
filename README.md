@@ -79,13 +79,13 @@ swiftc -o main exercises.swift main.swift && ./main
 ### C
 
 ```
-g++ -o exercises test.c exercises.c && exercises
+g++ -o exercises test.c exercises.c && ./exercises
 ```
 
 ### C++
 
 ```
-g++ -o exercises test.cpp exercises.cpp && exercises
+g++ -std=c++20 -o exercises test.cpp exercises.cpp && ./exercises
 ```
 
 ### Rust
