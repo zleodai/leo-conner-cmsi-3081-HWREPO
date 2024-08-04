@@ -103,7 +103,7 @@ go test exercises_test.go exercises.go
 ### Gleam
 
 ```
-
+gleam test
 ```
 
 ### Mojo
