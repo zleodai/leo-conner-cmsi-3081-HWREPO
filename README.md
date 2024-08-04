@@ -55,7 +55,7 @@ ghc ExercisesTest.hs && ./ExercisesTest
 ### TypeScript
 
 ```
-
+npm test
 ```
 
 ### Java
@@ -109,13 +109,13 @@ gleam test
 ### Mojo
 
 ```
-
+mojo test.mojo
 ```
 
 ## Grading Notes
 
-Your grade is a reflection not only of your ability to sling code to pass existing tests, but also of your ability to construct software in a professional setting. Therefore, you will be docked points on your submission if you:
+Your grade is a reflection not only of your ability to sling code to pass existing tests, but also of your ability to construct software in a professional setting. Therefore, you will be docked points (sorry, but it has to be done) on your submission if you:
 
 - Fail to follow any submission instructions, such as not replacing the contents of this readme file and not including the names of all participants of any group work.
 - Push to your GitHub repository any file that does not belong (including but not limited to that silly `DS_Store`). Make sure all generated executables, intermediate files, third-party libraries, etc. are not committed. Your repo contents should be limited to your solution files, tests, configuration files, and `.gitignore` files.
-- Fail to follow naming or formatting guidelines for the language you are writing in. Inconsistent indentation, for example, has no place in professional or student software. Neither does end-of-line whitespace, huge chunks of contiguous blank lines, and other types of messy coding practices that show the world that you don’t care about your work.
+- Fail to follow naming or formatting guidelines for the language you are writing in. Inconsistent indentation, for example, has no place in professional or student software. Neither does end-of-line whitespace, huge chunks of contiguous blank lines, and other types of messy coding practices that show friends, family, colleagues, and potential employers that you don’t care about your work.
