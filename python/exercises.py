@@ -1,5 +1,3 @@
-# Write your solutions to the exercises in this file.
-
 from typing import Tuple
 
 def change(amount: int) -> Tuple[int, int, int, int]:
@@ -12,3 +10,13 @@ def change(amount: int) -> Tuple[int, int, int, int]:
         coins, amount = divmod(amount, denomination)
         change_counts.append(coins)
     return tuple(change_counts)
+
+# Write your stretched function here
+
+# Write your powers generator here
+
+# Write your say function here
+
+# Write your file capitalizer function here
+
+# Write your Quaternion class here

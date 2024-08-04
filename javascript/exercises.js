@@ -1,5 +1,3 @@
-// Write your solutions to the exercises in this file.
-
 export function change(amount) {
   if (amount < 0) {
     throw new RangeError("amount cannot be negative")
@@ -12,3 +10,13 @@ export function change(amount) {
   coins.push(remaining)
   return coins
 }
+
+// Write your stretched function here
+
+// Write your powers generator here
+
+// Write your say function here
+
+// Write your file capitalizer function here
+
+// Write your Quaternion class here
