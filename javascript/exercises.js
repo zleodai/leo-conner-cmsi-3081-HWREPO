@@ -1,6 +1,9 @@
 export function change(amount) {
+  if (!Number.isInteger(amount)) {
+    throw new TypeError("Amount must be an integer")
+  }
   if (amount < 0) {
-    throw new RangeError("amount cannot be negative")
+    throw new RangeError("Amount cannot be negative")
   }
   let [coins, remaining] = [[], amount]
   for (let denomination of [25, 10, 5]) {
@@ -17,6 +20,6 @@ export function change(amount) {
 
 // Write your say function here
 
-// Write your file capitalizer function here
+// Write your misc file stats function here
 
 // Write your Quaternion class here
