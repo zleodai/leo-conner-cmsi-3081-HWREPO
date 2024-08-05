@@ -2,9 +2,9 @@ from typing import Tuple
 
 def change(amount: int) -> Tuple[int, int, int, int]:
     if not isinstance(amount, int):
-        raise TypeError('amount must be an integer')
+        raise TypeError('Amount must be an integer')
     if amount < 0:
-        raise ValueError('amount cannot be negative')
+        raise ValueError('Amount cannot be negative')
     change_counts = []
     for denomination in (25, 10, 5, 1):
         coins, amount = divmod(amount, denomination)
@@ -17,6 +17,6 @@ def change(amount: int) -> Tuple[int, int, int, int]:
 
 # Write your say function here
 
-# Write your file capitalizer function here
+# Write your misc file stats function here
 
 # Write your Quaternion class here
