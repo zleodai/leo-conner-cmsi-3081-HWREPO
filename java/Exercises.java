@@ -1,5 +1,9 @@
 // Write your solutions to the exercises in this file.
 
-class Exercises {
+import java.util.List;
 
+class Exercises {
+    public static List<Integer> change(int amount) {
+        return null;
+    }
 }
