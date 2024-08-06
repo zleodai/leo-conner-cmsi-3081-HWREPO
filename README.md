@@ -8,11 +8,11 @@ Fork this repo for your homework submissions. After forking, **please replace th
 
 Your homework submissions will consist of programs in the following languages. To keep things simple, there is a separate folder for each language.
 
-- **Homework 1**: Lua, Python, JavaScript
-- **Homework 2**: OCaml, Haskell, TypeScript
-- **Homework 3**: Java, Kotlin, Swift
-- **Homework 4**: C, C++, Rust
-- **Homework 5**: Go, Gleam, Mojo
+- **Homework 1 (Scripting)**: Lua, Python, JavaScript
+- **Homework 2 (Enterprise)**: Java, Kotlin, Swift
+- **Homework 3 (Theory)**: OCaml, Haskell, TypeScript
+- **Homework 4 (Systems)**: C, C++, Rust
+- **Homework 5 (Concurrency)**: Go, Gleam, Mojo
 
 At each homework deadline, the graders will clone your repo and run the tests. I will be inspecting the source code, grading your work on style, clarity, and appropriate use of language idioms. Do not throw away points in these areas: **use code formatters and linters**. Please consider it a moral obligation to use these tools. Not doing so is a violation of professional ethics. _You must respect the naming, capitalization, formatting, spacing, and indentation conventions of each language_.
 
