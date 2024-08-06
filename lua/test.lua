@@ -24,8 +24,29 @@ assert(change(10000000000005) == 400000000000, 0, 1, 0)
 -- assert(stretched("hello world") ==
 --     "heelllllllooooowwwwwwooooooorrrrrrrrllllllllldddddddddd")
 
--- print("Testing powers()")
--- TODO
+-- print("Testing powers_generator()")
+-- gen = powers_generator(3, 100)
+-- status = coroutine.status(gen)
+-- success, power = coroutine.resume(gen)
+-- assert(status == "suspended" and success and power == 1)
+-- status = coroutine.status(gen)
+-- success, power = coroutine.resume(gen)
+-- assert(status == "suspended" and success and power == 3)
+-- status = coroutine.status(gen)
+-- success, power = coroutine.resume(gen)
+-- assert(status == "suspended" and success and power == 9)
+-- status = coroutine.status(gen)
+-- success, power = coroutine.resume(gen)
+-- assert(status == "suspended" and success and power == 27)
+-- status = coroutine.status(gen)
+-- success, power = coroutine.resume(gen)
+-- assert(status == "suspended" and success and power == 81)
+-- status = coroutine.status(gen)
+-- success, power = coroutine.resume(gen)
+-- assert(status == "suspended" and success and power == nil)
+-- status = coroutine.status(gen)
+-- success, power = coroutine.resume(gen)
+-- assert(status == "dead" and not success)
 
 -- print("Testing say()")
 -- assert(say() == "")
@@ -38,7 +59,22 @@ assert(change(10000000000005) == 400000000000, 0, 1, 0)
 -- assert(say("😄🤗")("💀👊🏾")() == "😄🤗 💀👊🏾")
 
 -- print("Testing misc_file_stats()")
--- TODO
+-- stats = misc_file_stats("NoSuchFile.txt")
+-- assert(stats.error == "No such file")
+-- stats = misc_file_stats("../test-for-line-count.txt")
+-- print(stats.lineCount, stats.blankLineCount, stats.hashedLineCount)
+-- assert(stats.lineCount == 13 and stats.blankLineCount == 7 and stats.hashedLineCount == 2)
+
+-- // describe("The miscFileStats function", async () => {
+-- //   it("returns an object with an error if no such file", async () => {
+-- //     const stats = await miscFileStats("NoSuchFile.txt")
+-- //     deepEqual(stats, { error: "No such file" })
+-- //   })
+-- //   it("computes stats for the test file", async () => {
+-- //     const stats = await miscFileStats("../test-for-line-count.txt")
+-- //     deepEqual(stats, { lineCount: 13, blankLineCount: 7, hashedLineCount: 2 })
+-- //   })
+-- // })
 
 -- print("Testing Quaternion")
 -- q1 = Quaternion.new(8, 5, -3, 1)
