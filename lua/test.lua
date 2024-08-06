@@ -65,17 +65,6 @@ assert(change(10000000000005) == 400000000000, 0, 1, 0)
 -- print(stats.lineCount, stats.blankLineCount, stats.hashedLineCount)
 -- assert(stats.lineCount == 13 and stats.blankLineCount == 7 and stats.hashedLineCount == 2)
 
--- // describe("The miscFileStats function", async () => {
--- //   it("returns an object with an error if no such file", async () => {
--- //     const stats = await miscFileStats("NoSuchFile.txt")
--- //     deepEqual(stats, { error: "No such file" })
--- //   })
--- //   it("computes stats for the test file", async () => {
--- //     const stats = await miscFileStats("../test-for-line-count.txt")
--- //     deepEqual(stats, { lineCount: 13, blankLineCount: 7, hashedLineCount: 2 })
--- //   })
--- // })
-
 -- print("Testing Quaternion")
 -- q1 = Quaternion.new(8, 5, -3, 1)
 -- assert(table.concat(q1:coefficients(), ",") == "8,5,-3,1")
