@@ -40,24 +40,6 @@ python3 -m unittest exercises_test.py
 npm test
 ```
 
-### OCaml
-
-```
-ocamlc exercises.ml test.ml && ./a.out
-```
-
-### Haskell
-
-```
-ghc ExercisesTest.hs && ./ExercisesTest
-```
-
-### TypeScript
-
-```
-npm test
-```
-
 ### Java
 
 ```
@@ -74,6 +56,24 @@ kotlin -J-ea test.kts
 
 ```
 swiftc -o main exercises.swift main.swift && ./main
+```
+
+### OCaml
+
+```
+ocamlc exercises.ml test.ml && ./a.out
+```
+
+### Haskell
+
+```
+ghc ExercisesTest.hs && ./ExercisesTest
+```
+
+### TypeScript
+
+```
+npm test
 ```
 
 ### C
