@@ -1,4 +1,6 @@
-from typing import Tuple
+from typing import Tuple, List, Callable
+from dataclasses import dataclass
+import re
 
 def change(amount: int) -> Tuple[int, int, int, int]:
     if not isinstance(amount, int):
@@ -11,7 +13,7 @@ def change(amount: int) -> Tuple[int, int, int, int]:
         change_counts.append(coins)
     return tuple(change_counts)
 
-# Write your stretched function here
+# Write your first_then_lowercase function here
 
 # Write your powers generator here
 

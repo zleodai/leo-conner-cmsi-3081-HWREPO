@@ -1,6 +1,6 @@
 import unittest
 from exercises import (
-    # stretched,
+    # first_then_lowercase,
     # say,
     # powers_generator,
     # misc_file_stats,
@@ -28,18 +28,21 @@ class TestExercises(unittest.TestCase):
     # Uncomment the following tests as you complete the exercises
     # and remove this comment that tells you to uncomment!
 
-    # def test_stretched(self):
-    #     self.assertEqual(stretched(""), "")
-    #     self.assertEqual(stretched("  "), "")
-    #     self.assertEqual(stretched("  \t\n  \t"), "")
-    #     self.assertEqual(stretched("  Hi  hi  "), "Hiihhhiiii")
-    #     self.assertEqual(stretched("a        π§"), "aππ§§§")
-    #     self.assertEqual(stretched("😁😂😱"), "😁😂😂😱😱😱")
-    #     self.assertEqual(stretched(" 😄   🤗 💀  "), "😄🤗🤗💀💀💀")
+    # def test_first_then_lowercase(self):
+    #     def nonempty(s): return s != ""
+    #     def length_greater_than_3(s): return len(s) > 3
     #     self.assertEqual(
-    #         stretched("hello world"),
-    #         "heelllllllooooowwwwwwooooooorrrrrrrrllllllllldddddddddd"
-    #     )
+    #         first_then_lowercase([], nonempty),
+    #         None)
+    #     self.assertEqual(
+    #         first_then_lowercase(["", "A", "B"], nonempty),
+    #         "a")
+    #     self.assertEqual(
+    #         first_then_lowercase(["", "A", "ABC"], length_greater_than_3),
+    #         None)
+    #     self.assertEqual(
+    #         first_then_lowercase(["ABC", "ABCD", "ABCDE"], length_greater_than_3),
+    #         "abcd")
 
     # def test_say(self):
     #     self.assertEqual(say(), "")
@@ -80,14 +83,19 @@ class TestExercises(unittest.TestCase):
     # def test_Quaternion(self):
     #     q1 = Quaternion(8, 5, -3, 1)
     #     self.assertEqual(q1.coefficients, (8, 5, -3, 1))
+    #     self.assertEqual(q1, Quaternion(8, 5, -3, 1))
+    #     self.assertEqual(q1.conjugate, Quaternion(8, -5, 3, -1))
     #     q2 = Quaternion(0, 0, 0, 0)
     #     self.assertEqual(q2.coefficients, (0, 0, 0, 0))
+    #     self.assertEqual(q2.conjugate, Quaternion(0, 0, 0, 0))
     #     q3 = Quaternion(13, 21, -5, -21)
     #     q4 = Quaternion(2, -1, -55, 2.5)
     #     self.assertEqual((q3 + q4).coefficients, (15, 20, -60, -18.5))
+    #     self.assertEqual((q3 + q4).conjugate, Quaternion(15, -20, 60, 18.5))
     #     q5 = Quaternion(3, -5, 1, -8)
     #     q6 = Quaternion(2, -13, -2, 3)
     #     self.assertEqual((q5 * q6).coefficients, (-33, -62, 115, 16))
+    #     self.assertEqual((q5 * q6).conjugate, Quaternion(-33, 62, -115, -16))
 
 
 if __name__ == '__main__':
