@@ -4,10 +4,10 @@ total_count, failed_count = 0, 0
 function check(condition)
     total_count = total_count + 1
     if condition then
-        io.write('.')
+        io.write(" .")
     else
         failed_count = failed_count + 1
-        io.write('X')
+        io.write(" F")
     end
 end
 
@@ -27,13 +27,12 @@ check(change(10000000000005) == 400000000000, 0, 1, 0)
 -- and remove this comment that tells you to uncomment!
 
 -- io.write("\nTesting firstThenApply()")
--- function even(x) return x % 2 == 0 end
--- function double(x) return x * 2 end
--- check(firstThenApply({}, even, double) == nil)
--- check(firstThenApply({1, 3, 5, 7, 9}, even, double) == nil)
--- check(firstThenApply({1, 3, 5, 7, 9, 10}, even, double) == 20)
--- check(firstThenApply({1, 3, 5, 7, 9, 10, 11}, even, double) == 20)
--- check(firstThenApply({1, 3, 5, 7, 9, 10, 11, 12}, even, double) == 20)
+-- function nonEmpty(s) return s ~= "" end
+-- function lengthGreaterThan3(s) return #s > 3 end
+-- check(firstThenLowerCase({}, nonEmpty, string.lower) == nil)
+-- check(firstThenLowerCase({"", "A", "B"}, nonEmpty, string.lower) == "a")
+-- check(firstThenLowerCase({"", "A", "ABC"}, lengthGreaterThan3, string.lower) == nil)
+-- check(firstThenLowerCase({"ABC", "ABCD", "ABCDE"}, lengthGreaterThan3, string.lower) == "abcd")
 
 -- io.write("\nTesting powers_generator()")
 -- gen = powers_generator(3, 100)
@@ -83,6 +82,7 @@ check(change(10000000000005) == 400000000000, 0, 1, 0)
 -- check(table.concat(q1:conjugate():coefficients(), ",") == "8,-5,3,-1")
 -- q2 = Quaternion.new(0, 0, 0, 0)
 -- check(table.concat(q2:coefficients(), ",") == "0,0,0,0")
+-- check(table.concat(q2:conjugate():coefficients(), ",") == "0,0,0,0")
 -- q3 = Quaternion.new(13, 21, -5, -21)
 -- q4 = Quaternion.new(2, -1, -55, 2.5)
 -- check(table.concat((q3 + q4):coefficients(), ",") == "15,20,-60,-18.5")

@@ -1,3 +1,5 @@
+import { open } from "node:fs/promises"
+
 export function change(amount) {
   if (!Number.isInteger(amount)) {
     throw new TypeError("Amount must be an integer")
@@ -14,7 +16,7 @@ export function change(amount) {
   return coins
 }
 
-// Write your stretched function here
+// Write your firstThenLowercase function here
 
 // Write your powers generator here
 

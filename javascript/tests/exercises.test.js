@@ -2,7 +2,7 @@ import { describe, it } from "node:test"
 import { deepEqual, throws } from "node:assert/strict"
 import {
   change,
-  // stretched,
+  // firstThenLowercase,
   // say,
   // powersGenerator,
   // miscFileStats,
@@ -33,18 +33,19 @@ describe("The change function", () => {
 // Uncomment the following tests as you complete the exercises
 // and remove this comment that tells you to uncomment!
 
-// describe("The stretched function", () => {
+// describe("The firstThenLowercase function", () => {
+//   const nonEmpty = (s) => s !== ""
+//   const lengthGreaterThan3 = (s) => s.length > 3
 //   it("works", () => {
-//     deepEqual(stretched(""), "")
-//     deepEqual(stretched("  "), "")
-//     deepEqual(stretched("  \t\n  \t"), "")
-//     deepEqual(stretched("  Hi  hi  "), "Hiihhhiiii")
-//     deepEqual(stretched("a        π§"), "aππ§§§")
-//     deepEqual(stretched("😁😂😱"), "😁😂😂😱😱😱")
-//     deepEqual(stretched(" 😄   🤗 💀  "), "😄🤗🤗💀💀💀")
+//     deepEqual(firstThenLowercase([], nonEmpty), undefined)
+//     deepEqual(firstThenLowercase(["", "A", "B"], nonEmpty), "a")
 //     deepEqual(
-//       stretched("hello world"),
-//       "heelllllllooooowwwwwwooooooorrrrrrrrllllllllldddddddddd"
+//       firstThenLowercase(["", "A", "ABC"], lengthGreaterThan3),
+//       undefined
+//     )
+//     deepEqual(
+//       firstThenLowercase(["ABC", "ABCD", "ABCDE"], lengthGreaterThan3),
+//       "abcd"
 //     )
 //   })
 // })
@@ -100,17 +101,23 @@ describe("The change function", () => {
 
 // describe("The Quaternion class", () => {
 //   it("can echo coefficients", () => {
-//     deepEqual(new Quaternion(8, 5, -3, 1).coefficients(), [8, 5, -3, 1])
-//     deepEqual(new Quaternion(0, 0, 0, 0).coefficients(), [0, 0, 0, 0])
+//     const q1 = new Quaternion(8, 5, -3, 1)
+//     deepEqual(q1.coefficients(), [8, 5, -3, 1])
+//     deepEqual(q1.conjugate(), new Quaternion(8, -5, 3, -1))
+//     const q2 = new Quaternion(0, 0, 0, 0)
+//     deepEqual(q2.coefficients(), [0, 0, 0, 0])
+//     deepEqual(q2.conjugate(), new Quaternion(0, 0, 0, 0))
 //   })
 //   it("adds correctly", () => {
 //     const q1 = new Quaternion(13, 21, -5, -21)
 //     const q2 = new Quaternion(2, -1, -55, 2.5)
 //     deepEqual(q1.plus(q2).coefficients(), [15, 20, -60, -18.5])
+//     deepEqual(q1.plus(q2).conjugate(), new Quaternion(15, -20, 60, 18.5))
 //   })
 //   it("multiples correctly", () => {
 //     const q1 = new Quaternion(3, -5, 1, -8)
 //     const q2 = new Quaternion(2, -13, -2, 3)
 //     deepEqual(q1.times(q2).coefficients(), [-33, -62, 115, 16])
+//     deepEqual(q1.times(q2).conjugate(), new Quaternion(-33, 62, -115, -16))
 //   })
 // })

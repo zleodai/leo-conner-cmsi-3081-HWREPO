@@ -15,7 +15,7 @@ function change(amount)
   return table.unpack(coins)
 end
 
--- Write your firstThenApply function here
+-- Write your firstThenLowercase function here
 
 -- Write your powers generator here
 
