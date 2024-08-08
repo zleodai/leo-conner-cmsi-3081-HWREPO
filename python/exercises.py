@@ -1,6 +1,5 @@
 from typing import Tuple, List, Callable
 from dataclasses import dataclass
-import re
 
 def change(amount: int) -> Tuple[int, int, int, int]:
     if not isinstance(amount, int):
