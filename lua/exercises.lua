@@ -15,7 +15,7 @@ function change(amount)
   return table.unpack(coins)
 end
 
--- Write your stretched function here
+-- Write your firstThenApply function here
 
 -- Write your powers generator here
 
