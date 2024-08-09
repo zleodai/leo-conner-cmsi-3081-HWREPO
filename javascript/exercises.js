@@ -8,15 +8,14 @@ export function change(amount) {
     throw new RangeError("Amount cannot be negative")
   }
   let [coins, remaining] = [[], amount]
-  for (let denomination of [25, 10, 5]) {
+  for (const denomination of [25, 10, 5, 1]) {
     coins.push(Math.floor(remaining / denomination))
     remaining %= denomination
   }
-  coins.push(remaining)
   return coins
 }
 
-// Write your firstThenLowercase function here
+// Write your first then lower case function here
 
 // Write your powers generator here
 

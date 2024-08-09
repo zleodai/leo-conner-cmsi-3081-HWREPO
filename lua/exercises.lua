@@ -6,11 +6,10 @@ function change(amount)
     error("Amount cannot be negative")
   end
   local coins, remaining = {}, amount
-  for _, coin in ipairs({25, 10, 5}) do
+  for _, coin in ipairs({25, 10, 5, 1}) do
     table.insert(coins, remaining // coin)
     remaining = remaining % coin
   end
-  table.insert(coins, remaining)
   return table.unpack(coins)
 end
 

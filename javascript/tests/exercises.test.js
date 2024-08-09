@@ -2,7 +2,7 @@ import { describe, it } from "node:test"
 import { deepEqual, throws } from "node:assert/strict"
 import {
   change,
-  // firstThenLowercase,
+  // firstThenLowerCase,
   // say,
   // powersGenerator,
   // miscFileStats,
@@ -33,18 +33,18 @@ describe("The change function", () => {
 // Uncomment the following tests as you complete the exercises
 // and remove this comment that tells you to uncomment!
 
-// describe("The firstThenLowercase function", () => {
+// describe("The firstThenLowerCase function", () => {
 //   const nonEmpty = (s) => s !== ""
 //   const lengthGreaterThan3 = (s) => s.length > 3
 //   it("works", () => {
-//     deepEqual(firstThenLowercase([], nonEmpty), undefined)
-//     deepEqual(firstThenLowercase(["", "A", "B"], nonEmpty), "a")
+//     deepEqual(firstThenLowerCase([], nonEmpty), undefined)
+//     deepEqual(firstThenLowerCase(["", "A", "B"], nonEmpty), "a")
 //     deepEqual(
-//       firstThenLowercase(["", "A", "ABC"], lengthGreaterThan3),
+//       firstThenLowerCase(["", "A", "ABC"], lengthGreaterThan3),
 //       undefined
 //     )
 //     deepEqual(
-//       firstThenLowercase(["ABC", "ABCD", "ABCDE"], lengthGreaterThan3),
+//       firstThenLowerCase(["ABC", "ABCD", "ABCDE"], lengthGreaterThan3),
 //       "abcd"
 //     )
 //   })
