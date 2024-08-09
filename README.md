@@ -43,7 +43,7 @@ npm test
 ### Java
 
 ```
-javac -cp junit.jar:. ExercisesTest.java && java -jar junit.jar -cp . -c ExercisesTest
+javac *.java && java ExercisesTest
 ```
 
 ### Kotlin
