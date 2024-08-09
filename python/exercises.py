@@ -12,7 +12,7 @@ def change(amount: int) -> Tuple[int, int, int, int]:
         change_counts.append(coins)
     return tuple(change_counts)
 
-# Write your first_then_lowercase function here
+# Write your first then lower case function here
 
 # Write your powers generator here
 

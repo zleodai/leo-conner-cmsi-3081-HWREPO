@@ -31,7 +31,7 @@ lua test.lua
 ### Python
 
 ```
-python3 -m unittest exercises_test.py
+python3 exercises_test.py
 ```
 
 ### JavaScript
