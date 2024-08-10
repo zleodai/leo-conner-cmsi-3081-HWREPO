@@ -2,7 +2,7 @@ from exercises import (
     # first_then_lower_case,
     # say,
     # powers_generator,
-    # misc_file_stats,
+    # file_stats,
     # Quaternion,
     change)
 
@@ -38,7 +38,7 @@ check(change(10000000000005) == (400000000000, 0, 1, 0))
 # Uncomment the following tests as you complete the exercises
 # and remove this comment that tells you to uncomment!
 
-# suite("first_then_lowercase")
+# suite("first_then_lower_case")
 # def nonempty(s): return s != ""
 # def length_greater_than_3(s): return len(s) > 3
 # check(first_then_lower_case([], nonempty) is None)
@@ -69,9 +69,9 @@ check(change(10000000000005) == (400000000000, 0, 1, 0))
 # check_error(StopIteration, None, next, g2)
 # check(list(powers_generator(base=3, limit=27)) == [1, 3, 9, 27])
 
-# suite("misc_file_stats")
-# check(misc_file_stats("NoSuchFile.txt") == {"error": "No such file"})
-# check(misc_file_stats("../test-for-line-count.txt") == {
+# suite("file_stats")
+# check(file_stats("NoSuchFile.txt") == {"error": "No such file"})
+# check(file_stats("../test-for-line-count.txt") == {
 #     "lineCount": 13, "blankLineCount": 7, "hashedLineCount": 2})
 
 # suite("Quaternion")
