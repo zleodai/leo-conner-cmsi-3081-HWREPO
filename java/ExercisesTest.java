@@ -1,8 +1,8 @@
 import java.util.List;
-import java.io.IOException;
-import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
+import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.util.concurrent.Callable;
 
 public class ExercisesTest {
@@ -37,29 +37,40 @@ public class ExercisesTest {
             () -> Exercises.change(-50),
             IllegalArgumentException.class,
             "Amount cannot be negative");
-        check(Exercises.change(1).equals(List.of(0L, 0L, 0L, 1L)));
-        check(Exercises.change(99).equals(List.of(3L, 2L, 0L, 4L)));
-        check(Exercises.change(42).equals(List.of(1L, 1L, 1L, 2L)));
-        check(Exercises.change(100000000037L).equals(List.of(4000000001L, 1L, 0L, 2L)));
-        check(Exercises.change(10000000000005L).equals(List.of(400000000000L, 0L, 1L, 0L)));
+        check(Exercises.change(1).equals(
+            Map.of(25, 0L, 10, 0L, 5, 0L, 1, 1L)));
+        check(Exercises.change(99).equals(
+            Map.of(25, 3L, 10, 2L, 5, 0L, 1, 4L)));
+        check(Exercises.change(42).equals(
+            Map.of(25, 1L, 10, 1L, 5, 1L, 1, 2L)));
+        check(Exercises.change(100000000037L).equals(
+            Map.of(25, 4000000001L, 10, 1L, 5, 0L, 1, 2L)));
+        check(Exercises.change(10000000000005L).equals(
+            Map.of(25, 400000000000L, 10, 0L, 5, 1L, 1, 0L)));
 
         // Uncomment the following tests as you complete the exercises
         // and remove this comment that tells you to uncomment!
 
         // suite("firstThenLowerCase");
-        // check(Exercises.firstThenLowerCase(List.of(), s -> !s.isEmpty()).isEmpty());
-        // check(Exercises.firstThenLowerCase(List.of("", "A", "B"), s -> !s.isEmpty()).get().equals("a"));
-        // check(Exercises.firstThenLowerCase(List.of("", "A", "ABC"), s -> s.length() > 3).isEmpty());
-        // check(Exercises.firstThenLowerCase(List.of("ABC", "ABCD", "ABCDE"), s -> s.length() > 3).get().equals("abcd"));
+        // check(Exercises.firstThenLowerCase(
+        //         List.of(), s -> !s.isEmpty()).isEmpty());
+        // check(Exercises.firstThenLowerCase(
+        //         List.of("", "A", "B"), s -> !s.isEmpty()).get().equals("a"));
+        // check(Exercises.firstThenLowerCase(
+        //         List.of("", "A", "ABC"), s -> s.length() > 3).isEmpty());
+        // check(Exercises.firstThenLowerCase(
+        //         List.of("ABC", "ABCD", "ABCDE"), s -> s.length() > 3).get().equals("abcd"));
 
         // suite("say");
         // check(Exercises.say().equals(""));
         // check(Exercises.say("hi").ok().equals("hi"));
         // check(Exercises.say("hi").and("there").ok().equals("hi there"));
-        // check(Exercises.say("hello").and("my").and("name").and("is").and("Colette").ok().equals("hello my name is Colette"));
+        // check(Exercises.say("hello").and("my").and("name").and("is").and("Colette").ok()
+        //         .equals("hello my name is Colette"));
         // check(Exercises.say("h i").ok().equals("h i"));
         // check(Exercises.say("hi ").and("   there").ok().equals("hi     there"));
-        // check(Exercises.say("").and("").and("dog").and("").and("go").ok().equals("  dog  go"));
+        // check(Exercises.say("").and("").and("dog").and("").and("go").ok()
+        //         .equals("  dog  go"));
         // check(Exercises.say("😄🤗").and("💀👊🏾").ok().equals("😄🤗 💀👊🏾"));
 
         // suite("miscFileStats");
