@@ -84,12 +84,9 @@ check_hash_equals(change(10000000000005), {[25]=400000000000, [10]=0, [5]=1, [1]
 -- check(say("")("")("dog")("")("go")() == "  dog  go")
 -- check(say("😄🤗")("💀👊🏾")() == "😄🤗 💀👊🏾")
 
--- suite("file_stats")
--- check_error("No such file", file_stats, "NoSuchFile.txt")
--- stats = file_stats("../test-for-line-count.txt")
--- check(stats.lineCount == 13)
--- check(stats.blankLineCount == 7)
--- check(stats.hashedLineCount == 2)
+-- suite("meaningful_line_count")
+-- check_error("No such file", meaningful_line_count, "no-such-file.txt")
+-- check(meaningful_line_count("../test-for-line-count.txt") == 5)
 
 -- suite("Quaternion")
 -- q1 = Quaternion.new(8, 5, -3, 1)

@@ -19,6 +19,6 @@ end
 
 -- Write your say function here
 
--- Write your file stats function here
+-- Write your line count function here
 
 -- Write your Quaternion table here
