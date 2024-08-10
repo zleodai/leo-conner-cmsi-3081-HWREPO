@@ -25,15 +25,15 @@ def check_error(error_type, text, fun, *args):
 suite("change")
 check_error(TypeError, "Amount must be an integer", change, 3.5)
 check_error(ValueError, "Amount cannot be negative", change, -50)
-check(change(0) == (0, 0, 0, 0))
-check(change(99) == (3, 2, 0, 4))
-check(change(8) == (0, 0, 1, 3))
-check(change(42) == (1, 1, 1, 2))
-check(change(250) == (10, 0, 0, 0))
-check(change(144) == (5, 1, 1, 4))
-check(change(97) == (3, 2, 0, 2))
-check(change(100000000037) == (4000000001, 1, 0, 2))
-check(change(10000000000005) == (400000000000, 0, 1, 0))
+check(change(0) == {25: 0, 10: 0, 5: 0, 1: 0})
+check(change(99) == {25: 3, 10: 2, 5: 0, 1: 4})
+check(change(8) == {25: 0, 10: 0, 5: 1, 1: 3})
+check(change(42) == {25: 1, 10: 1, 5: 1, 1: 2})
+check(change(250) == {25: 10, 10: 0, 5: 0, 1: 0})
+check(change(144) == {25: 5, 10: 1, 5: 1, 1: 4})
+check(change(97) == {25: 3, 10: 2, 5: 0, 1: 2})
+check(change(100000000037) == {25: 4000000001, 10: 1, 5: 0, 1: 2})
+check(change(10000000000005) == {25: 400000000000, 10: 0, 5: 1, 1: 0})
 
 # Uncomment the following tests as you complete the exercises
 # and remove this comment that tells you to uncomment!
@@ -70,7 +70,7 @@ check(change(10000000000005) == (400000000000, 0, 1, 0))
 # check(list(powers_generator(base=3, limit=27)) == [1, 3, 9, 27])
 
 # suite("file_stats")
-# check(file_stats("NoSuchFile.txt") == {"error": "No such file"})
+# check_error(FileNotFoundError, 'No such file', file_stats, "NoSuchFile.txt")
 # check(file_stats("../test-for-line-count.txt") == {
 #     "lineCount": 13, "blankLineCount": 7, "hashedLineCount": 2})
 
