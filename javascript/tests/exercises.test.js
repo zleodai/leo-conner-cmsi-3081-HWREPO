@@ -1,11 +1,11 @@
 import { describe, it } from "node:test"
-import { deepEqual, throws } from "node:assert/strict"
+import { deepEqual, throws, rejects } from "node:assert/strict"
 import {
   change,
   // firstThenLowerCase,
   // say,
   // powersGenerator,
-  // miscFileStats,
+  // fileStats,
   // Quaternion,
 } from "../exercises.js"
 
@@ -88,13 +88,12 @@ describe("The change function", () => {
 //   })
 // })
 
-// describe("The miscFileStats function", async () => {
-//   it("returns an object with an error if no such file", async () => {
-//     const stats = await miscFileStats("NoSuchFile.txt")
-//     deepEqual(stats, { error: "No such file" })
+// describe("The fileStats function", async () => {
+//   it("throws if no such file", async () => {
+//     rejects(async () => await fileStats("NoSuchFile.txt"), /Error/)
 //   })
 //   it("computes stats for the test file", async () => {
-//     const stats = await miscFileStats("../test-for-line-count.txt")
+//     const stats = await fileStats("../test-for-line-count.txt")
 //     deepEqual(stats, { lineCount: 13, blankLineCount: 7, hashedLineCount: 2 })
 //   })
 // })

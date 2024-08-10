@@ -21,6 +21,6 @@ export function change(amount) {
 
 // Write your say function here
 
-// Write your misc file stats function here
+// Write your file stats function here
 
 // Write your Quaternion class here
