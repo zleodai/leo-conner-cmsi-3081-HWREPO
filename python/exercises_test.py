@@ -2,7 +2,7 @@ from exercises import (
     # first_then_lower_case,
     # say,
     # powers_generator,
-    # file_stats,
+    # meaningful_line_count,
     # Quaternion,
     change)
 
@@ -69,10 +69,9 @@ check(change(10000000000005) == {25: 400000000000, 10: 0, 5: 1, 1: 0})
 # check_error(StopIteration, None, next, g2)
 # check(list(powers_generator(base=3, limit=27)) == [1, 3, 9, 27])
 
-# suite("file_stats")
-# check_error(FileNotFoundError, 'No such file', file_stats, "NoSuchFile.txt")
-# check(file_stats("../test-for-line-count.txt") == {
-#     "lineCount": 13, "blankLineCount": 7, "hashedLineCount": 2})
+# suite("meaningful_line_count")
+# check_error(FileNotFoundError, 'No such file', meaningful_line_count, "no-such-file.txt")
+# check(meaningful_line_count("../test-for-line-count.txt") == 5)
 
 # suite("Quaternion")
 # q1 = Quaternion(8, 5, -3, 1)
