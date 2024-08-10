@@ -1,5 +1,3 @@
-// Write your solutions to the exercises in this file.
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -27,7 +25,7 @@ public class Exercises {
 
     // Write your say function here
 
-    // Write your misc file stats function here
+    // Write your file stats function here
 
     // (Your Quaternion and Binary Search Tree solutions will be in
     // separate files)

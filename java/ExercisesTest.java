@@ -73,12 +73,12 @@ public class ExercisesTest {
         //         .equals("  dog  go"));
         // check(Exercises.say("😄🤗").and("💀👊🏾").ok().equals("😄🤗 💀👊🏾"));
 
-        // suite("miscFileStats");
+        // suite("fileStats");
         // checkThrows(
-        //     () -> Exercises.miscFileStats("NoSuchFile.txt"),
+        //     () -> Exercises.fileStats("NoSuchFile.txt"),
         //     FileNotFoundException.class,
         //     "No such file");
-        // var stats = Exercises.miscFileStats("../test-for-line-count.txt");
+        // var stats = Exercises.fileStats("../test-for-line-count.txt");
         // check(stats.size() == 3);
         // check(stats.get("lineCount") == 13);
         // check(stats.get("blankLineCount") == 7);
