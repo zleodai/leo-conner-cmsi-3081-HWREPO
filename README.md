@@ -25,7 +25,7 @@ The test suites are run like so (assuming you have a Unix-like shell, modify as 
 ### Lua
 
 ```
-lua test.lua
+lua exercises_test.lua
 ```
 
 ### Python
