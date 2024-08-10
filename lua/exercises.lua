@@ -5,12 +5,12 @@ function change(amount)
   if amount < 0 then
     error("Amount cannot be negative")
   end
-  local coins, remaining = {}, amount
-  for _, coin in ipairs({25, 10, 5, 1}) do
-    table.insert(coins, remaining // coin)
-    remaining = remaining % coin
+  local counts, remaining = {}, amount
+  for _, denomination in ipairs({25, 10, 5, 1}) do
+    counts[denomination] = remaining // denomination
+    remaining = remaining % denomination
   end
-  return table.unpack(coins)
+  return counts
 end
 
 -- Write your first then lower case function here
@@ -19,6 +19,6 @@ end
 
 -- Write your say function here
 
--- Write your misc file stats function here
+-- Write your file stats function here
 
 -- Write your Quaternion table here
