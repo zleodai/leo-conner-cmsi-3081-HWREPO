@@ -7,12 +7,12 @@ export function change(amount) {
   if (amount < 0) {
     throw new RangeError("Amount cannot be negative")
   }
-  let [coins, remaining] = [[], amount]
+  let [counts, remaining] = [{}, amount]
   for (const denomination of [25, 10, 5, 1]) {
-    coins.push(Math.floor(remaining / denomination))
+    counts[denomination] = Math.floor(remaining / denomination)
     remaining %= denomination
   }
-  return coins
+  return counts
 }
 
 // Write your first then lower case function here

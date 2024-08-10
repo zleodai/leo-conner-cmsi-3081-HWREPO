@@ -4,10 +4,8 @@
   "main": "exercises.js",
   "type": "module",
   "scripts": {
-    "test": "node --test tests/exercises.test.js"
+    "test": "node --test exercises.test.js"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "description": "JavaScript Homework Solutions"
 }
