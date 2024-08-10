@@ -89,10 +89,10 @@ describe("The change function", () => {
 // })
 
 // describe("The fileStats function", async () => {
-//   it("throws if no such file", async () => {
+//   await it("throws if no such file", async () => {
 //     rejects(async () => await fileStats("NoSuchFile.txt"), /Error/)
 //   })
-//   it("computes stats for the test file", async () => {
+//   await it("computes stats for the test file", async () => {
 //     const stats = await fileStats("../test-for-line-count.txt")
 //     deepEqual(stats, { lineCount: 13, blankLineCount: 7, hashedLineCount: 2 })
 //   })
