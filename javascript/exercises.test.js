@@ -5,7 +5,7 @@ import {
   // firstThenLowerCase,
   // say,
   // powersGenerator,
-  // fileStats,
+  // meaningfulLineCount,
   // Quaternion,
 } from "./exercises.js"
 
@@ -88,13 +88,13 @@ describe("The change function", () => {
 //   })
 // })
 
-// describe("The fileStats function", async () => {
+// describe("The meaningfulLineCount function", async () => {
 //   await it("throws if no such file", async () => {
-//     rejects(async () => await fileStats("NoSuchFile.txt"), /Error/)
+//     rejects(async () => await meaningfulLineCount("NoSuchFile.txt"), /Error/)
 //   })
-//   await it("computes stats for the test file", async () => {
-//     const stats = await fileStats("../test-for-line-count.txt")
-//     deepEqual(stats, { lineCount: 13, blankLineCount: 7, hashedLineCount: 2 })
+//   await it("correctly counts lines for the test file", async () => {
+//     const count = await meaningfulLineCount("../test-for-line-count.txt")
+//     deepEqual(count, 5)
 //   })
 // })
 
