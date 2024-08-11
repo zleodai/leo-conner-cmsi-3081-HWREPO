@@ -49,7 +49,7 @@ javac *.java && java ExercisesTest
 ### Kotlin
 
 ```
-kotlin -J-ea test.kts
+kotlinc Exercises.kt ExercisesTest.kt -include-runtime -d test.jar && java -jar test.jar
 ```
 
 ### Swift
