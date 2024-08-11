@@ -34,7 +34,6 @@ describe("The change function", () => {
 })
 
 // Uncomment the following tests as you complete the exercises
-// and remove this comment that tells you to uncomment!
 
 // describe("The firstThenLowerCase function", () => {
 //   const nonEmpty = (s) => s !== ""
@@ -121,5 +120,12 @@ describe("The change function", () => {
 //     const q2 = new Quaternion(2, -13, -2, 3)
 //     deepEqual(q1.times(q2).coefficients(), [-33, -62, 115, 16])
 //     deepEqual(q1.times(q2).conjugate(), new Quaternion(-33, 62, -115, -16))
+//   })
+//   it("has a string representation", () => {
+//     deepEqual(`${new Quaternion(0, 0, 0, 0)}`, "0")
+//     deepEqual(`${new Quaternion(0, 1, 0, 0)}`, "i")
+//     deepEqual(`${new Quaternion(0, 1, 0, -1)}`, "i-k")
+//     deepEqual(`${new Quaternion(8, -2.2, 0, 1.5)}`, "8-2.2i+1.5k")
+//     deepEqual(`${new Quaternion(1, 0, -1, 2)}`, "1-j+2k")
 //   })
 // })
