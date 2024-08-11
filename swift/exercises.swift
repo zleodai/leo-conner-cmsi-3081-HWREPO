@@ -1,20 +1,28 @@
-// Write your solutions to the exercises in this file.
-
 import Foundation
 
-// Because change returns a result, we need to make a real error type.
 struct NegativeAmountError: Error {}
+struct NoSuchFileError: Error {}
 
-// We didn’t talk about typealias in class, but it’s cool
-typealias ChangeResult = Result<(Int, Int, Int, Int), NegativeAmountError>
+typealias ChangeResult = Result<[Int:Int], NegativeAmountError>
 
-// The _ is required of course, since you have to pass the tests.
 func change(_ amount: Int) -> ChangeResult {
     if amount < 0 {
         return .failure(NegativeAmountError())
     }
-    let (quarters, afterQuarters) = amount.quotientAndRemainder(dividingBy: 25)
-    let (dimes, afterDimes) = afterQuarters.quotientAndRemainder(dividingBy: 10)
-    let (nickels, pennies) = afterDimes.quotientAndRemainder(dividingBy: 5)
-    return .success((quarters, dimes, nickels, pennies))
+    var (counts, remaining) = ([Int:Int](), amount)
+    for denomination in [25, 10, 5, 1] {
+        (counts[denomination], remaining) = 
+            remaining.quotientAndRemainder(dividingBy: denomination)
+    }
+    return .success(counts)
 }
+
+// Write your first then lower case function here
+
+// Write your powers generator here
+
+// Write your say function here
+
+// Write your Quaternion struct here
+
+// Write your Binary Search Tree enum here
