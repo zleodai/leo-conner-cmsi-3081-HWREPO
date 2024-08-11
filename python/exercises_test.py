@@ -6,7 +6,7 @@ from exercises import (
     # Quaternion,
     change)
 
-
+################################################################################
 counts = {True: 0, False: 0}
 def suite(name):
     print(f"\nTesting {name}", end="")
@@ -21,6 +21,7 @@ def expect_error(error_type, text, fun, *args):
         expect(isinstance(e, error_type))
         if text is not None:
             expect(text in str(e))
+################################################################################
 
 suite("change")
 expect_error(TypeError, "Amount must be an integer", change, 33.375)
@@ -36,7 +37,6 @@ expect(change(100000000037) == {25: 4000000001, 10: 1, 5: 0, 1: 2})
 expect(change(10000000000005) == {25: 400000000000, 10: 0, 5: 1, 1: 0})
 
 # Uncomment the following tests as you complete the exercises
-# and remove this comment that tells you to uncomment!
 
 # suite("first_then_lower_case")
 # def nonempty(s): return s != ""
@@ -75,19 +75,29 @@ expect(change(10000000000005) == {25: 400000000000, 10: 0, 5: 1, 1: 0})
 
 # suite("Quaternion")
 # q1 = Quaternion(8, 5, -3, 1)
-# expect(q1.coefficients == (8, 5, -3, 1))
 # expect(q1 == Quaternion(8, 5, -3, 1))
+# expect(q1.coefficients == (8, 5,- 3, 1))
+# expect(q1.conjugate.coefficients == (8, -5, 3, -1))
+# expect(q1.conjugate.conjugate == q1)
 # expect(q1.conjugate == Quaternion(8, -5, 3, -1))
+# expect(str(q1) == "8+5i-3j+k")
+# expect(str(q1.conjugate) == "8-5i+3j-k")
 # q2 = Quaternion(0, 0, 0, 0)
 # expect(q2.coefficients == (0, 0, 0, 0))
+# expect(q2.conjugate.coefficients == (0, 0, 0, 0))
 # expect(q2.conjugate == Quaternion(0, 0, 0, 0))
+# expect(str(q2) == "0")
 # q3 = Quaternion(13, 21, -5, -21)
 # q4 = Quaternion(2, -1, -55, 2.5)
 # expect((q3 + q4).coefficients == (15, 20, -60, -18.5))
-# expect((q3 + q4).conjugate == Quaternion(15, -20, 60, 18.5))
+# expect(str(q3 + q4) == "15+20i-60j-18.5k")
 # q5 = Quaternion(3, -5, 1, -8)
 # q6 = Quaternion(2, -13, -2, 3)
-# expect((q5 * q6).coefficients == (-33, -62, 115, 16))
+# expect((q5 * q6).coefficients == (-33,-62, 115, 16))
+# expect((q5 * q6).conjugate.coefficients == (-33, 62, -115, -16))
 # expect((q5 * q6).conjugate == Quaternion(-33, 62, -115, -16))
+# expect(str(Quaternion(0, 1, 0, 0)) == "i")
+# expect(str(Quaternion(0, 1, 0, -1)) == "i-k")
+# expect(str(Quaternion(0, -1, 5, -1)) == "-i+5j-k")
 
 print(f"\n{counts[True]} passed, {counts[False]} failed")
