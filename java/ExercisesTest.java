@@ -33,31 +33,28 @@ public class ExercisesTest {
 
     void run() throws IOException {
         suite("change");
-        expectToThrow(
-            () -> Exercises.change(-50),
-            IllegalArgumentException.class,
-            "Amount cannot be negative");
+        expectToThrow(() -> Exercises.change(-50),
+                IllegalArgumentException.class, "Amount cannot be negative");
         expect(Exercises.change(0).equals(
-            Map.of(25, 0L, 10, 0L, 5, 0L, 1, 0L)));
+                Map.of(25, 0L, 10, 0L, 5, 0L, 1, 0L)));
         expect(Exercises.change(1).equals(
-            Map.of(25, 0L, 10, 0L, 5, 0L, 1, 1L)));
+                Map.of(25, 0L, 10, 0L, 5, 0L, 1, 1L)));
         expect(Exercises.change(8).equals(
-            Map.of(25, 0L, 10, 0L, 5, 1L, 1, 3L)));
+                Map.of(25, 0L, 10, 0L, 5, 1L, 1, 3L)));
         expect(Exercises.change(42).equals(
-            Map.of(25, 1L, 10, 1L, 5, 1L, 1, 2L)));
+                Map.of(25, 1L, 10, 1L, 5, 1L, 1, 2L)));
         expect(Exercises.change(99).equals(
-            Map.of(25, 3L, 10, 2L, 5, 0L, 1, 4L)));
+                Map.of(25, 3L, 10, 2L, 5, 0L, 1, 4L)));
         expect(Exercises.change(144).equals(
-            Map.of(25, 5L, 10, 1L, 5, 1L, 1, 4L)));
+                Map.of(25, 5L, 10, 1L, 5, 1L, 1, 4L)));
         expect(Exercises.change(250).equals(
-            Map.of(25, 10L, 10, 0L, 5, 0L, 1, 0L)));
+                Map.of(25, 10L, 10, 0L, 5, 0L, 1, 0L)));
         expect(Exercises.change(100000000037L).equals(
-            Map.of(25, 4000000001L, 10, 1L, 5, 0L, 1, 2L)));
+                Map.of(25, 4000000001L, 10, 1L, 5, 0L, 1, 2L)));
         expect(Exercises.change(10000000000005L).equals(
-            Map.of(25, 400000000000L, 10, 0L, 5, 1L, 1, 0L)));
+                Map.of(25, 400000000000L, 10, 0L, 5, 1L, 1, 0L)));
 
         // Uncomment the following tests as you complete the exercises
-        // and remove this comment that tells you to uncomment!
 
         // suite("firstThenLowerCase");
         // expect(Exercises.firstThenLowerCase(
@@ -70,16 +67,21 @@ public class ExercisesTest {
         //         List.of("ABC", "ABCD", "ABCDE"), s -> s.length() > 3).get().equals("abcd"));
 
         // suite("say");
-        // expect(Exercises.say().equals(""));
-        // expect(Exercises.say("hi").ok().equals("hi"));
-        // expect(Exercises.say("hi").and("there").ok().equals("hi there"));
-        // expect(Exercises.say("hello").and("my").and("name").and("is").and("Colette").ok()
+        // expect(Exercises.say().phrase().equals(""));
+        // expect(Exercises.say("hi").phrase().equals("hi"));
+        // expect(Exercises.say("Oh").and("kay").phrase().equals("Oh kay"));
+        // expect(Exercises.say("hello").and("my").and("name").and("is").and("Colette").phrase()
         //         .equals("hello my name is Colette"));
-        // expect(Exercises.say("h i").ok().equals("h i"));
-        // expect(Exercises.say("hi ").and("   there").ok().equals("hi     there"));
-        // expect(Exercises.say("").and("").and("dog").and("").and("go").ok()
+        // expect(Exercises.say("h i").phrase().equals("h i"));
+        // expect(Exercises.say("hi ").and("   there").phrase().equals("hi     there"));
+        // expect(Exercises.say("").and("").and("dog").and("").and("go").phrase()
         //         .equals("  dog  go"));
-        // expect(Exercises.say("😄🤗").and("💀👊🏾").ok().equals("😄🤗 💀👊🏾"));
+        // expect(Exercises.say("🐤🦇").and("$🦊👏🏽").and("!").phrase().equals("🐤🦇 $🦊👏🏽 !"));
+        // expect(Exercises.say("😄🤗").and("💀👊🏾").phrase().equals("😄🤗 💀👊🏾"));
+        // // Ensure there is no sharing of partial states!
+        // var greet = Exercises.say("Hello").and("there");
+        // expect(greet.and("nice").and("person").phrase().equals("Hello there nice person"));
+        // expect(greet.and("Swift").phrase().equals("Hello there Swift"));
 
         // suite("meaningfulLineCount");
         // expectToThrow(
@@ -89,10 +91,14 @@ public class ExercisesTest {
         // expect(Exercises.meaningfulLineCount("../test-for-line-count.txt") == 5);
 
         // suite("Quaternion");
-        // expectToThrow(() -> new Quaternion(Double.NaN, 0, 0, 0), IllegalArgumentException.class, "Coefficients cannot be NaN");
-        // expectToThrow(() -> new Quaternion(0, Double.NaN, 0, 0), IllegalArgumentException.class, "Coefficients cannot be NaN");
-        // expectToThrow(() -> new Quaternion(0, 0, Double.NaN, 0), IllegalArgumentException.class, "Coefficients cannot be NaN");
-        // expectToThrow(() -> new Quaternion(0, 0, 0, Double.NaN), IllegalArgumentException.class, "Coefficients cannot be NaN");
+        // expectToThrow(() -> new Quaternion(Double.NaN, 0, 0, 0),
+        //         IllegalArgumentException.class, "Coefficients cannot be NaN");
+        // expectToThrow(() -> new Quaternion(0, Double.NaN, 0, 0),
+        //         IllegalArgumentException.class, "Coefficients cannot be NaN");
+        // expectToThrow(() -> new Quaternion(0, 0, Double.NaN, 0),
+        //         IllegalArgumentException.class, "Coefficients cannot be NaN");
+        // expectToThrow(() -> new Quaternion(0, 0, 0, Double.NaN),
+        //         IllegalArgumentException.class, "Coefficients cannot be NaN");
 
         // var q = new Quaternion(3.5, 2.25, -100, -1.25);
         // expect(q.a() == 3.5);
@@ -104,16 +110,29 @@ public class ExercisesTest {
         // var q2 = new Quaternion(-2, 2, 8, -1);
         // var q3 = new Quaternion(-1, 5, 13, 1);
         // var q4 = new Quaternion(-46, -25, 5, 9);
-        // expect(q3.equals(q1.plus(q2)));
-        // expect(q4.equals(q1.times(q2)));
-        // expect(Quaternion.K.equals(Quaternion.I.times(Quaternion.J)));
 
-        // expect(new Quaternion(0, 0, 0, 0).coefficients().equals(List.of(0.0, 0.0, 0.0, 0.0)));
-        // expect(new Quaternion(2, 1.5, 10, -8).coefficients().equals(List.of(2.0, 1.5, 10.0, -8.0)));
+        // expect(Quaternion.ZERO.coefficients().equals(List.of(0.0, 0.0, 0.0, 0.0)));
+        // expect(Quaternion.K.coefficients().equals(List.of(0.0, 0.0, 0.0, 1.0)));
+        // expect(q2.coefficients().equals(List.of(-2.0, 2.0, 8.0, -1.0)));
 
-        // expect(new Quaternion(0, 0, 0, 0).toString().equals("Quaternion[a=0.0, b=0.0, c=0.0, d=0.0]"));
-        // expect(new Quaternion(0, -1, 0, 2.25).toString().equals("Quaternion[a=0.0, b=-1.0, c=0.0, d=2.25]"));
-        // expect(Quaternion.ZERO.minus(Quaternion.K).toString().equals("Quaternion[a=0.0, b=0.0, c=0.0, d=-1.0]"));
+        // expect(q1.plus(q2).equals(q3));
+        // expect(q1.times(q2).equals(q4));
+        // expect(q1.plus(Quaternion.ZERO).equals(q1));
+        // expect(q1.times(Quaternion.ZERO).equals(Quaternion.ZERO));
+
+        // expect(Quaternion.I.times(Quaternion.J).equals(Quaternion.K));
+        // expect(Quaternion.J.times(Quaternion.K).equals(Quaternion.I));
+        // expect(Quaternion.J.plus(Quaternion.I).equals(new Quaternion(0, 1, 1, 0)));
+
+        // expect(("" + Quaternion.ZERO).equals("0"));
+        // expect(("" + Quaternion.J).equals("j"));
+        // expect(("" + Quaternion.K.conjugate()).equals("-k"));
+        // expect(("" + Quaternion.J.conjugate().times(new Quaternion(2, 0, 0, 0))).equals("-2.0j"));
+        // expect(("" + Quaternion.J.plus(Quaternion.K)).equals("j+k"));
+        // expect(("" + new Quaternion(0, -1, 0, 2.25)).equals("-i+2.25k"));
+        // expect(("" + new Quaternion(-20, -1.75, 13, -2.25)).equals("-20.0-1.75i+13.0j-2.25k"));
+        // expect(("" + new Quaternion(-1, -2, 0, 0)).equals("-1.0-2.0i"));
+        // expect(("" + new Quaternion(1, 0, -2, 5)).equals("1.0-2.0j+5.0k"));
 
         // suite("BinarySearchTree");
         // BinarySearchTree t = new Empty();
@@ -128,8 +147,11 @@ public class ExercisesTest {
         // t = t.insert("B");
         // expect(t.toString().equals("((B)G)"));
         // t = t.insert("D");
+        // expect(t.toString().equals("((B(D))G)"));
         // t = t.insert("H");
+        // expect(t.toString().equals("((B(D))G(H))"));
         // t = t.insert("A");
+        // expect(t.toString().equals("(((A)B(D))G(H))"));
         // t = t.insert("C");
         // t = t.insert("J");
         // expect(t.size() == 7);
