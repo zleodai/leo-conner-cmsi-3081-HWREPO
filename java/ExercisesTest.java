@@ -73,16 +73,12 @@ public class ExercisesTest {
         //         .equals("  dog  go"));
         // check(Exercises.say("😄🤗").and("💀👊🏾").ok().equals("😄🤗 💀👊🏾"));
 
-        // suite("fileStats");
+        // suite("meaningfulLineCount");
         // checkThrows(
-        //     () -> Exercises.fileStats("NoSuchFile.txt"),
+        //     () -> Exercises.meaningfulLineCount("no-such-file.txt"),
         //     FileNotFoundException.class,
         //     "No such file");
-        // var stats = Exercises.fileStats("../test-for-line-count.txt");
-        // check(stats.size() == 3);
-        // check(stats.get("lineCount") == 13);
-        // check(stats.get("blankLineCount") == 7);
-        // check(stats.get("hashedLineCount") == 2);
+        // check(Exercises.meaningfulLineCount("../test-for-line-count.txt") == 5);
 
         // suite("Quaternion");
         // checkThrows(() -> new Quaternion(Double.NaN, 0, 0, 0), IllegalArgumentException.class, "Coefficients cannot be NaN");

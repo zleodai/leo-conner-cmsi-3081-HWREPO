@@ -4,9 +4,12 @@ import java.util.Map;
 import java.util.HashMap;
 import java.util.Optional;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.FileSystem;
+import java.nio.file.Files;
 
 public class Exercises {
     static Map<Integer, Long> change(long amount) {
@@ -25,8 +28,7 @@ public class Exercises {
 
     // Write your say function here
 
-    // Write your file stats function here
+    // Write your line count function here
 
-    // (Your Quaternion and Binary Search Tree solutions will be in
-    // separate files)
+    // The other exercises will go in separate files
 }
