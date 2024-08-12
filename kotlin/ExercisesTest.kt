@@ -121,6 +121,11 @@ fun main() {
     // expect(t.contains("J"))
     // expect(!t.contains("Z"))
     // expect(t.toString() == "(((A)B((C)D))G(H(J)))")
+    // // Test immutability
+    // var t2: BinarySearchTree = t;
+    // t2 = t2.insert("F");
+    // expect(t2.size() == 8);
+    // expect(t.size() == 7);
 
     println("\n$passed passed, $failed failed")
 }

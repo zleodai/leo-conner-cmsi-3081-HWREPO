@@ -122,5 +122,10 @@ expectSuccess(change(10000000000005), [25: 400000000000, 10: 0, 5: 1, 1: 0])
 // expect(t.contains("J"));
 // expect(!t.contains("Z"));
 // expect("\(t)" == "(((A)B((C)D))G(H(J)))")
+// // Test immutability
+// var t2: BinarySearchTree = t;
+// t2 = t2.insert("F");
+// expect(t2.size == 8);
+// expect(t.size == 7);
 
 print("\n\(passed) passed, \(failed) failed")

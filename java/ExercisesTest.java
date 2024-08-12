@@ -158,6 +158,11 @@ public class ExercisesTest {
         // expect(t.contains("J"));
         // expect(!t.contains("Z"));
         // expect(t.toString().equals("(((A)B((C)D))G(H(J)))"));
+        // // Test immutability
+        // BinarySearchTree t2 = t;
+        // t2 = t2.insert("F");
+        // expect(t2.size() == 8);
+        // expect(t.size() == 7);
 
         System.out.printf("\n%d passed, %d failed\n", counts.get(true), counts.get(false));
     }
