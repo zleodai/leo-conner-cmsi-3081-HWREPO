@@ -7,6 +7,7 @@ import java.util.concurrent.Callable;
 
 public class ExercisesTest {
 
+    //////////////////////////////////////////////////////////////////////////////////////
     HashMap<Boolean, Integer> counts = new HashMap<>(Map.of(true, 0, false, 0));
 
     void suite(String name) {
@@ -30,6 +31,7 @@ public class ExercisesTest {
     public static void main(String[] args) throws IOException{
         new ExercisesTest().run();
     }
+    //////////////////////////////////////////////////////////////////////////////////////
 
     void run() throws IOException {
         suite("change");
