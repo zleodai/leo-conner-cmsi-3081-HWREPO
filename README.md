@@ -10,7 +10,7 @@ Your homework submissions will consist of programs in the following languages. T
 
 - **Homework 1 (Scripting)**: Lua, Python, JavaScript
 - **Homework 2 (Enterprise)**: Java, Kotlin, Swift
-- **Homework 3 (Theory)**: OCaml, Haskell, TypeScript
+- **Homework 3 (Theory)**: TypeScript, OCaml, Haskell
 - **Homework 4 (Systems)**: C, C++, Rust
 - **Homework 5 (Concurrency)**: Go, Gleam, Mojo
 
@@ -49,13 +49,19 @@ javac *.java && java ExercisesTest
 ### Kotlin
 
 ```
-kotlinc Exercises.kt ExercisesTest.kt -include-runtime -d test.jar && java -jar test.jar
+kotlinc *.kt -include-runtime -d test.jar && java -jar test.jar
 ```
 
 ### Swift
 
 ```
 swiftc -o main exercises.swift main.swift && ./main
+```
+
+### TypeScript
+
+```
+npm test
 ```
 
 ### OCaml
@@ -68,12 +74,6 @@ ocamlc exercises.ml test.ml && ./a.out
 
 ```
 ghc ExercisesTest.hs && ./ExercisesTest
-```
-
-### TypeScript
-
-```
-npm test
 ```
 
 ### C
@@ -114,8 +114,9 @@ mojo test.mojo
 
 ## Grading Notes
 
-Your grade is a reflection not only of your ability to sling code to pass existing tests, but also of your ability to construct software in a professional setting. Therefore, you will be docked points (sorry, but it has to be done) on your submission if you:
+Your grade is a reflection not only of your ability to write code to pass existing tests, but also of your ability to construct software in a professional setting. Therefore, the following will contribute rather heavily to your score:
 
-- Fail to follow any submission instructions, such as not replacing the contents of this readme file and not including the names of all participants of any group work.
-- Push to your GitHub repository any file that does not belong (including but not limited to that silly `DS_Store`). Make sure all generated executables, intermediate files, third-party libraries, etc. are not committed. Your repo contents should be limited to your solution files, tests, configuration files, and `.gitignore` files.
-- Fail to follow naming or formatting guidelines for the language you are writing in. Inconsistent indentation, for example, has no place in professional or student software. Neither does end-of-line whitespace, huge chunks of contiguous blank lines, and other types of messy coding practices that show friends, family, colleagues, and potential employers that you don’t care about your work.
+- Following all submission instructions! Pay attention to every requirement such as replacing the contents of this readme file and including the names of all participants of any group work.
+- Keeping a pristine GitHub repository. Do not push any file that does not belong (including but not limited to that silly `DS_Store`). Make sure all generated executables, intermediate files, third-party libraries, etc. are not committed. Your repo contents should be limited to your solution files, tests, configuration files, and `.gitignore` files.
+- Adherence to naming and formatting guidelines for the language you are writing in. Inconsistent indentation, for example, has no place in professional or student software. Neither does end-of-line whitespace, huge chunks of contiguous blank lines, and other types of messy coding practices that show friends, family, colleagues, and potential employers that you don’t care about your work.
+- (As always) The readability and maintainability of your code.
