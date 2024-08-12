@@ -3,9 +3,7 @@ import Foundation
 struct NegativeAmountError: Error {}
 struct NoSuchFileError: Error {}
 
-typealias ChangeResult = Result<[Int:Int], NegativeAmountError>
-
-func change(_ amount: Int) -> ChangeResult {
+func change(_ amount: Int) -> Result<[Int:Int], NegativeAmountError> {
     if amount < 0 {
         return .failure(NegativeAmountError())
     }
@@ -19,9 +17,9 @@ func change(_ amount: Int) -> ChangeResult {
 
 // Write your first then lower case function here
 
-// Write your powers generator here
-
 // Write your say function here
+
+// Write your meaningfulLineCount function here
 
 // Write your Quaternion struct here
 
