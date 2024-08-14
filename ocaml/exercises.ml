@@ -1,8 +1,3 @@
-(*  Write your solutions to the exercises in this file. *)
-
-let add (a:int) (b:int) : int =
-  a + b
-
 exception Negative_Amount
 
 let change amount =
@@ -17,3 +12,12 @@ let change amount =
     in
     aux amount denominations
 
+(* Write your first then apply function here *)
+
+(* Write your powers generator here *)
+
+(* Write your line count function here *)
+
+(* Write your shape type and associated functions here *)
+
+(* Write your binary search tree implementation here *)
