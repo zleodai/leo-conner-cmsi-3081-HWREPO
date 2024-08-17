@@ -1,16 +1,41 @@
--- Write your solutions to the exercises in this file.
-
 module Exercises
-    ( change
+    ( change,
+    --   firstThenApply,
+    --   powers,
+    --   meaningfulLineCount,
+    --   Shape(..),
+    --   BST,
+    --   volume,
+    --   surfaceArea,
+    --   newTree,
+    --   size,
+    --   contains,
+    --   insert
     ) where
 
-change :: Int -> Either String (Int, Int, Int, Int)
+import qualified Data.Map as Map
+import Data.Text (pack, unpack, replace)
+import Data.List(isPrefixOf)
+import Data.Char(isSpace)
+
+change :: Integer -> Either String (Map.Map Integer Integer)
 change amount
     | amount < 0 = Left "amount cannot be negative"
-    | otherwise =
-        let
-            (quarters, afterQuarters) = amount `divMod` 25
-            (dimes, afterDimes) = afterQuarters `divMod` 10
-            (nickels, pennies) = afterDimes `divMod` 5
-        in
-            Right (quarters, dimes, nickels, pennies)
+    | otherwise = Right $ changeHelper [25, 10, 5, 1] amount Map.empty
+        where
+          changeHelper [] remaining counts = counts
+          changeHelper (d:ds) remaining counts =
+            changeHelper ds newRemaining newCounts
+              where
+                (count, newRemaining) = remaining `divMod` d
+                newCounts = Map.insert d count counts
+
+-- Write your first then apply function here
+
+-- Write your infinite powers generator here
+
+-- Write your line count function here
+
+-- Write your shape data type here
+
+-- Write your binary search tree type here
