@@ -16,7 +16,7 @@ let expect condition =
 
 let expect_equal_lists a b =
   expect (List.for_all2 (fun x y -> x = y) a b);;
- (* -------------------------------------------------------------------------- *)
+(* -------------------------------------------------------------------------- *)
 
 suite "change";;
 match change (-50) with
@@ -73,6 +73,29 @@ let s2 = Box (3.0, 4.0, 5.0) in (
   expect (volume s2 = 60.0);
   expect (surface_area s1 = 314.1592653589793);
   expect (surface_area s2 = 94.0);
+);;
+
+suite "binary search tree";;
+let t1 = Empty in
+let t2 = insert 5 t1 in
+let t3 = insert 3 t2 in
+let t4 = insert 7 t3 in
+let t5 = insert 4 t4 in (
+  expect (size t1 = 0);
+  expect (size t2 = 1);
+  expect (size t3 = 2);
+  expect (size t4 = 3);
+  expect (size t5 = 4);
+  expect (contains 7 t1 = false);
+  expect (contains 7 t2 = false);
+  expect (contains 7 t3 = false);
+  expect (contains 7 t4 = true);
+  expect (contains 7 t5 = true);
+  expect (inorder t1 = []);
+  expect (inorder t2 = [5]);
+  expect (inorder t3 = [3; 5]);
+  expect (inorder t4 = [3; 5; 7]);
+  expect (inorder t5 = [3; 4; 5; 7]);
 );;
 *)
 

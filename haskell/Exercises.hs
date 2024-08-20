@@ -1,21 +1,11 @@
 module Exercises
     ( change,
-    --   firstThenApply,
-    --   powers,
-    --   meaningfulLineCount,
-    --   Shape(..),
-    --   BST,
-    --   volume,
-    --   surfaceArea,
-    --   newTree,
-    --   size,
-    --   contains,
-    --   insert
+      -- put the proper exports here
     ) where
 
 import qualified Data.Map as Map
 import Data.Text (pack, unpack, replace)
-import Data.List(isPrefixOf)
+import Data.List(isPrefixOf, find)
 import Data.Char(isSpace)
 
 change :: Integer -> Either String (Map.Map Integer Integer)
@@ -38,4 +28,4 @@ change amount
 
 -- Write your shape data type here
 
--- Write your binary search tree type here
+-- Write your binary search tree algebraic type here

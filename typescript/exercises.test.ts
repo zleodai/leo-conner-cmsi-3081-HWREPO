@@ -121,7 +121,7 @@ describe("The change function", () => {
 // })
 
 // describe("The BinarySearchTree class", () => {
-//   let t: BinarySearchTree
+//   let t: BinarySearchTree<string>
 //   it("starts empty", () => {
 //     t = new Empty()
 //     deepEqual(t.size(), 0)
@@ -154,5 +154,22 @@ describe("The change function", () => {
 //     t2 = t2.insert("F")
 //     deepEqual(t2.size(), 8)
 //     deepEqual(t.size(), 7)
+//   })
+//   it("can iterate in order", () => {
+//     deepEqual([...t.inorder()], ["A", "B", "C", "D", "G", "H", "J"])
+//     let t2: BinarySearchTree<number> = new Empty()
+//     deepEqual([...t2.inorder()], [])
+//     t2 = t2.insert(5)
+//     deepEqual([...t2.inorder()], [5])
+//     t2 = t2.insert(3)
+//     t2 = t2.insert(8)
+//     deepEqual([...t2.inorder()], [3, 5, 8])
+//   })
+//   it("ignores insertions if values are already present", () => {
+//     let t: BinarySearchTree<boolean> = new Empty()
+//     t = t.insert(true)
+//     t = t.insert(false)
+//     t = t.insert(true)
+//     deepEqual(t.size(), 2)
 //   })
 // })
