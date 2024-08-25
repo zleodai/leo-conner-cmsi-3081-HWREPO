@@ -12,7 +12,7 @@ Your homework submissions will consist of programs in the following languages. T
 - **Homework 2 (Enterprise)**: Java, Kotlin, Swift
 - **Homework 3 (Theory)**: TypeScript, OCaml, Haskell
 - **Homework 4 (Systems)**: C, C++, Rust
-- **Homework 5 (Concurrency)**: Go, Gleam, Mojo
+- **Homework 5 (Concurrency)**: Clojure, Go, Elixir
 
 At each homework deadline, the graders will clone your repo and run the tests. I will be inspecting the source code, grading your work on style, clarity, and appropriate use of language idioms. Do not throw away points in these areas: **use code formatters and linters**. Please consider it a moral obligation to use these tools. Not doing so is a violation of professional ethics. _You must respect the naming, capitalization, formatting, spacing, and indentation conventions of each language_.
 
@@ -97,19 +97,19 @@ cargo test
 ### Go
 
 ```
-go test exercises_test.go exercises.go
+go run restaurant.go
 ```
 
-### Gleam
+### Clojure
 
 ```
-gleam test
+clojure restaurant.clj
 ```
 
-### Mojo
+### Elixir
 
 ```
-mojo exercises_test.mojo
+elixir restaurant.exs
 ```
 
 ## Grading Notes
