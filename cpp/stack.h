@@ -40,7 +40,8 @@ public:
 
   // Write your pop() method here
 
-  // We recommend you make a private reallocate method here. It should 
+private:
+  // We recommend you make a PRIVATE reallocate method here. It should
   // ensure the stack capacity never goes above MAX_CAPACITY or below
   // INITIAL_CAPACITY. Because smart pointers are involved, you will need
   // to use std::move() to transfer ownership of the new array to the stack
