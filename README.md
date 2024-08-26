@@ -4,7 +4,9 @@ Welcome!
 
 ## Instructions
 
-Fork this repo for your homework submissions. After forking, **please replace the contents of this readme** file with information about your submission, including the name(s) of the students and any notes you need to leave for the graders.
+Fork this repo for your homework submissions. Make sure your fork has a nice, descriptive name. Leaving the name as “lmu-cmsi-3801-template” is misleading, and keeping it indicates you are not taking sufficient pride in your work. After forking, **please replace the contents of this readme** file with information about your submissions, including the name(s) of the students, and a description of each assignment (as they are turned in).
+
+Don’t bother with notes to the graders. Such notes go into your BrightSpace submissions, not your GitHub repository.
 
 Your homework submissions will consist of programs in the following languages. To keep things simple, there is a separate folder for each language.
 
