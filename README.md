@@ -81,13 +81,13 @@ ghc ExercisesTest.hs && ./ExercisesTest
 ### C
 
 ```
-gcc -o exercises test.c exercises.c && ./exercises
+gcc string_stack.c string_stack_test.c && ./a.out
 ```
 
 ### C++
 
 ```
-g++ -std=c++20 -o exercises test.cpp exercises.cpp && ./exercises
+g++ -std=c++20 stack_test.cpp && ./a.out
 ```
 
 ### Rust
