@@ -14,8 +14,29 @@ function change(amount)
 end
 
 -- Write your first then lower case function here
+function return_lower_case(inputString)
+  if string.len(inputString) ~= 0 then return string.lower(inputString) end
+  return nil
+end 
+
+function first_then_lower_case(stringTable, filterFunction)
+  for index, value in ipairs(stringTable) do
+    if filterFunction(value) then return return_lower_case(value) end      
+  end
+  return nil
+end
 
 -- Write your powers generator here
+function powers_generator(power, max)
+  limit = math.floor(math.log(max)/math.log(power))
+  powerGenerator = coroutine.create(function ()
+    for i=0,limit do 
+      coroutine.yield(power^i)
+    end
+  end
+  )
+  return powerGenerator
+end
 
 -- Write your say function here
 
