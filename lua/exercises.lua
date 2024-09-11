@@ -69,14 +69,14 @@ end
 -- Write your Quaternion table here
 Quaternion = {a = 0, b = 0, c = 0, d = 0}
 function Quaternion.new(_a, _b, _c, _d)
-  local quaternion = {}
-  setmetatable(quaternion, Quaternion)
-  quaternion.a = _a
-  quaternion.b = _b
-  quaternion.c = _c
-  quaternion.d = _d
+  quaternion = {}
+  self = setmetatable(quaternion, Quaternion)
+  self.a = _a
+  self.b = _b
+  self.c = _c
+  self.d = _d
 
-  return quaternion
+  return self
 end
 
 function Quaternion:__tostring()
@@ -104,7 +104,14 @@ function Quaternion:__tostring()
   
   if string.len(quatString) == 0 then quatString = "0" end
 
-  print(string.format("\nFormatted Quat: %s", quatString))
-
   return quatString
+end
+
+function Quaternion:coefficients()
+  local coefficentsTable = {}
+  coefficentsTable[0] = self.a + 0.0
+  coefficentsTable[1] = self.b + 0.0
+  coefficentsTable[2] = self.c + 0.0
+  coefficentsTable[3] = self.d + 0.0
+  return coefficentsTable
 end
