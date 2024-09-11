@@ -1,3 +1,4 @@
+import math
 from dataclasses import dataclass
 from collections.abc import Callable
 
@@ -14,13 +15,26 @@ def change(amount: int) -> dict[int, int]:
 
 
 # Write your first then lower case function here
-
-
+def first_then_lower_case(strList: list[str], filterFunction: Callable[[str], bool]) -> str:
+    for string in strList:
+        if filterFunction(string):
+            if len(string) != 0:
+                return str.lower(string)
+            return None
+    return None
+    
 # Write your powers generator here
-
+def powers_generator(base: int, limit: int) -> int:
+    iterLimit = math.floor(math.log(limit)/math.log(base))
+    for i in range(iterLimit +1): 
+        yield(base**i)
 
 # Write your say function here
-
+def say(inputString: str = None) -> str:
+  if inputString == None:
+      return ""
+  sayHelper = lambda otherInputString = None: inputString if inputString == None else say(inputString + " " + otherInputString)
+  return sayHelper
 
 # Write your line count function here
 
