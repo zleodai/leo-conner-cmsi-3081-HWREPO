@@ -1,7 +1,7 @@
 import math
+from typing import Generator
 from dataclasses import dataclass
 from collections.abc import Callable
-
 
 def change(amount: int) -> dict[int, int]:
     if not isinstance(amount, int):
@@ -24,19 +24,37 @@ def first_then_lower_case(strList: list[str], filterFunction: Callable[[str], bo
     return None
     
 # Write your powers generator here
-def powers_generator(base: int, limit: int) -> int:
+def powers_generator(base: int, limit: int) -> Generator[int, None, None]:
     iterLimit = math.floor(math.log(limit)/math.log(base))
     for i in range(iterLimit +1): 
         yield(base**i)
 
 # Write your say function here
 def say(inputString: str = None) -> str:
-  if inputString == None:
-      return ""
-  sayHelper = lambda otherInputString = None: inputString if inputString == None else say(inputString + " " + otherInputString)
-  return sayHelper
+    if inputString == None:
+        return ""
+    def sayHelper(otherInputString: str = None, originalString: str = inputString) -> str:
+        if otherInputString == None:
+            return inputString 
+        else:
+            return say(f'{originalString} {otherInputString}')
+    return sayHelper
 
 # Write your line count function here
-
+def meaningful_line_count(filePath: str) -> int:
+    file = open(filePath, "r", encoding="utf8")
+    lineCount = 0
+    for line in file:
+        firstChar = ""
+        firstCharFound = False
+        for char in line:
+            if char != ' ' and char != '	' and char != ' ' and char != "\n" and not firstCharFound:
+                firstChar = char
+                firstCharFound = True
+        if firstChar != "#" and firstCharFound:
+            lineCount += 1
+    file.close()
+    return lineCount
+        
 
 # Write your Quaternion class here
