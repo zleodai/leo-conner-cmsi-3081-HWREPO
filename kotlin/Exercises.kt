@@ -14,11 +14,39 @@ fun change(amount: Long): Map<Int, Long> {
     return counts
 }
 
-// Write your first then lower case function here
+fun firstThenLowerCase(stringList: List<String>, filerFunction: (input: String) -> Boolean): String? {
+    var outputString: String? = null
+    var firstCaseFound = false
+    for (string in stringList) {
+        if (filerFunction(string) && !firstCaseFound) {
+            outputString = string
+            firstCaseFound = true
+        }
+    }
 
-// Write your say function here
+    return outputString?.lowercase()
+}
 
-// Write your meaningfulLineCount function here
+class ChainableString(val phrase: String?) {
+    fun and(stringSuffix: String): ChainableString {
+        val newPhrase = ChainableString(phrase.plus(" ").plus(stringSuffix))
+        return newPhrase
+    }
+}
+
+fun say(string: String? = null): ChainableString {
+    val defaultCase: String = ""
+    val newChainableString: ChainableString = ChainableString(string ?: defaultCase)
+
+    return newChainableString
+}
+
+// fun meaningfulLineCount(filePath: String): Long {
+
+//     File(filePath).forEachLine {
+
+//     }
+// }
 
 // Write your Quaternion data class here
 
