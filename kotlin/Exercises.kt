@@ -41,12 +41,40 @@ fun say(string: String? = null): ChainableString {
     return newChainableString
 }
 
-// fun meaningfulLineCount(filePath: String): Long {
+fun meaningfulLineCount(filePath: String): Long {
+    var fileReader: FileReader
 
-//     File(filePath).forEachLine {
+    try {
+        fileReader = FileReader(filePath)
+    } catch (e: Exception) {
+        throw IOException("No such file")
+    }
 
-//     }
-// }
+    val bufferedReader = BufferedReader(fileReader)
+    val text: String = bufferedReader.use { reader ->
+        reader.readText()
+    }
+    val lines = text.split("\n")
+
+    var lineCount: Long = 0
+    for (line in lines) {
+        var firstChar = '#'
+        var firstCharFound = false
+
+        val chars = line.toCharArray()
+        for (char in chars) {
+            if (char != ' ' && char != '	' && char != ' ' && char.code != 13 && !firstCharFound) {
+                firstChar = char
+                firstCharFound = true
+            }
+        }
+
+        if (firstChar != '#' && firstCharFound) {
+            lineCount += 1
+        }
+    }
+    return lineCount
+}
 
 // Write your Quaternion data class here
 
