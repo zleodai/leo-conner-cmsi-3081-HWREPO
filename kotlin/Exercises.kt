@@ -29,16 +29,12 @@ fun firstThenLowerCase(stringList: List<String>, filerFunction: (input: String) 
 
 class ChainableString(val phrase: String?) {
     fun and(stringSuffix: String): ChainableString {
-        val newPhrase = ChainableString(phrase.plus(" ").plus(stringSuffix))
-        return newPhrase
+        return ChainableString(phrase.plus(" ").plus(stringSuffix))
     }
 }
 
 fun say(string: String? = null): ChainableString {
-    val defaultCase: String = ""
-    val newChainableString: ChainableString = ChainableString(string ?: defaultCase)
-
-    return newChainableString
+    return ChainableString(string ?: "")
 }
 
 fun meaningfulLineCount(filePath: String): Long {

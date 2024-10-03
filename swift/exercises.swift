@@ -15,9 +15,38 @@ func change(_ amount: Int) -> Result<[Int:Int], NegativeAmountError> {
     return .success(counts)
 }
 
-// Write your first then lower case function here
+func firstThenLowerCase(of: Array<String>, satisfying: (String) -> Bool) -> String?{
+    var first: String?
+    var firstFound: Bool = false
 
-// Write your say function here
+    for string in of {
+        if (satisfying(string) && !firstFound) {
+            first = string
+            firstFound = true
+        }
+    }
+
+    if (firstFound) {
+        return first?.lowercased()
+    }
+    return nil
+}
+
+class ChainableString {
+    var phrase: String
+
+    init(_ phrase: String) {
+        self.phrase = phrase
+    }
+
+    func and(_ stringSuffix: String) -> ChainableString {
+        return ChainableString(phrase + " " + stringSuffix)
+    }
+}
+
+fun say(_ string: String? = nil): ChainableString {
+    var defau
+}
 
 // Write your meaningfulLineCount function here
 
