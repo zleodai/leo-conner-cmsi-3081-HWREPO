@@ -22,5 +22,8 @@ func change(_ amount: Int) -> Result<[Int:Int], NegativeAmountError> {
 // Write your meaningfulLineCount function here
 
 // Write your Quaternion struct here
+// make copy of list when constructing quaternion
+// internal list can be mutable
+// return immutable list for quaternion
 
 // Write your Binary Search Tree enum here

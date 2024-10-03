@@ -140,16 +140,28 @@ class Quaternion(val a: Double, val b: Double, val c: Double, val d: Double) {
     }
 }
 
-data class TreeNode(val c: Char, var left: TreeNode? = null, var right: TreeNode? = null): Comparable<TreeNode> {
+data class TreeNode(val c: String, val left: TreeNode? = null, val right: TreeNode? = null): Comparable<TreeNode> {
     override operator fun equals(a: Any?): Boolean {
         if (a is TreeNode) { return this.c == a.c }
         return false
     }
 
     override operator fun compareTo(a: TreeNode): Int {
-        if (this.c.code > a.c.code) return 1
-        if (this.c.code < a.c.code) return -1
+        if (this.c.get(0).code > a.c.get(0).code) return 1
+        if (this.c.get(0).code < a.c.get(0).code) return -1
         return 0
+    }
+
+    fun insertLeft(newC: String): TreeNode {
+        return TreeNode(this.c, TreeNode(newC), this.right?.let {this.right.copy()} ?: null)
+    }
+
+    fun insertRight(newC: String): TreeNode {
+        return TreeNode(this.c, this.left?.let {this.left.copy()} ?: null, TreeNode(newC))
+    }
+
+    fun copy(): TreeNode {
+        return TreeNode(this.c, this.left?.let {this.left.copy()} ?: null, this.right?.let {this.right.copy()} ?: null) 
     }
 
     fun hasLeft(): Boolean {
@@ -164,11 +176,47 @@ data class TreeNode(val c: Char, var left: TreeNode? = null, var right: TreeNode
 } 
 
 sealed interface BinarySearchTree {
-    object Empty: BinarySearchTree {
+    fun insert(c: String): BinarySearchTree
+    fun size(): Int
+    fun contains(c: String): Boolean
 
+    object Empty: BinarySearchTree {
+        override fun insert(c: String): BinarySearchTree {
+            val newNode = TreeNode(c)
+            val newTree = NodeTree(newNode)
+            return newTree
+        }
+
+        override fun size(): Int {
+            return 0
+        }
+
+        override fun contains(c: String): Boolean {
+            return false
+        }
+        
+        override fun toString(): String {
+            return "()"
+        }
     }
 
-    data class NodeTree: BinarySearchTree {
+    data class NodeTree(var root: TreeNode): BinarySearchTree {
+        override fun insert(c: String): BinarySearchTree {
+            val newNode = TreeNode(c)
+            val newTree = NodeTree(newNode)
+            return newTree
+        }
 
+        override fun size(): Int {
+            return 0
+        }
+
+        override fun contains(c: String): Boolean {
+            return false
+        }
+        
+        override fun toString(): String {
+            return "()"
+        }
     }
 }

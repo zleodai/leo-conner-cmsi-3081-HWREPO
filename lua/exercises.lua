@@ -55,7 +55,7 @@ function meaningful_line_count(filePath)
       local firstCharFound = false
       for charIndex = 1,#line do
         -- Im gonna assume "	" is a whitespace even doe it is a hidden character
-        if string.sub(line, charIndex, charIndex) ~= " " and string.sub(line, charIndex, charIndex) ~= "	" and not firstCharFound then 
+        if string.sub(line, charIndex, charIndex) ~= " " and string.sub(line, charIndex, charIndex) ~= "	" and string.sub(line, charIndex, charIndex) ~= " " and not firstCharFound then 
           firstChar = string.sub(line, charIndex, charIndex) 
           firstCharFound = true
         end
@@ -75,6 +75,7 @@ function Quaternion.new(_a, _b, _c, _d)
   quaternion.a = _a
   quaternion.b = _b
   quaternion.c = _c
+
   quaternion.d = _d
 
   return quaternion
@@ -131,19 +132,11 @@ function Quaternion:__tostring()
 end
 
 function Quaternion:coefficients()
-  local coefficentsTable = {}
-  coefficentsTable[1] = self.a + 0.0
-  coefficentsTable[2] = self.b + 0.0
-  coefficentsTable[3] = self.c + 0.0
-  coefficentsTable[4] = self.d + 0.0
+  local coefficentsTable = {self.a, self.b, self.c, self.d}
   return coefficentsTable
 end
 
 function Quaternion:conjugate()
-  local newQuaternion = setmetatable({}, Quaternion)
-  newQuaternion.a = self.a
-  newQuaternion.b = -self.b
-  newQuaternion.c = -self.c
-  newQuaternion.d = -self.d
+  local newQuaternion = Quaternion.new(self.a, -self.b, -self.c, -self.d)
   return newQuaternion
 end
