@@ -43,7 +43,7 @@ fun meaningfulLineCount(filePath: String): Long {
     try {
         fileReader = FileReader(filePath)
     } catch (e: Exception) {
-        throw IOException("No such file")
+        throw IOException("file")
     }
 
     val bufferedReader = BufferedReader(fileReader)
@@ -81,22 +81,18 @@ class Quaternion(val a: Double, val b: Double, val c: Double, val d: Double) {
     }
 
     operator fun times(a: Quaternion): Quaternion {
-        val productQuaternion = Quaternion((this.a * a.a) - (this.b * a.b) - (this.c * a.c) - (this.d * a.d),
+        return Quaternion((this.a * a.a) - (this.b * a.b) - (this.c * a.c) - (this.d * a.d),
                                        (this.a * a.b) + (this.b * a.a) + (this.c * a.d) - (this.d * a.c),
                                        (this.a * a.c) - (this.b * a.d) + (this.c * a.a) + (this.d * a.b),
                                        (this.a * a.d) + (this.b * a.c) - (this.c * a.b) + (this.d * a.a))
-
-        return productQuaternion
     }
 
     operator fun plus(a: Quaternion): Quaternion {
-        val sumQuaternion = Quaternion(this.a + a.a, this.b + a.b, this.c + a.c, this.d + a.d)
-        return sumQuaternion
+        return Quaternion(this.a + a.a, this.b + a.b, this.c + a.c, this.d + a.d)
     }
 
     override operator fun equals(a: Any?): Boolean {
-        if (a is Quaternion) { return this.a == a.a && this.b == a.b && this.c == a.c && this.d == a.d }
-        return false
+        if (a is Quaternion) { return this.a == a.a && this.b == a.b && this.c == a.c && this.d == a.d } else { return false }
     }
 
     override fun toString(): String {

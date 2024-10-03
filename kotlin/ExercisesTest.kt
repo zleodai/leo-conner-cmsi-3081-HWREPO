@@ -60,7 +60,7 @@ fun main() {
     expect(greet.and("Swift").phrase == "Hello there Swift")
 
     suite("meaningfulLineCount")
-    expectToThrow({ meaningfulLineCount("no-such-file.txt") }, IOException::class.java, "No such file")
+    expectToThrow({ meaningfulLineCount("no-such-file.txt") }, IOException::class.java, "file")
     expect(meaningfulLineCount("../test-for-line-count.txt") == 5L)
 
     suite("Quaternion")
