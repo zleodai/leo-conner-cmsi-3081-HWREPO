@@ -140,3 +140,35 @@ class Quaternion(val a: Double, val b: Double, val c: Double, val d: Double) {
     }
 }
 
+data class TreeNode(val c: Char, var left: TreeNode? = null, var right: TreeNode? = null): Comparable<TreeNode> {
+    override operator fun equals(a: Any?): Boolean {
+        if (a is TreeNode) { return this.c == a.c }
+        return false
+    }
+
+    override operator fun compareTo(a: TreeNode): Int {
+        if (this.c.code > a.c.code) return 1
+        if (this.c.code < a.c.code) return -1
+        return 0
+    }
+
+    fun hasLeft(): Boolean {
+        this.left?.let { return true }
+        return false
+    }
+
+    fun hasRight(): Boolean {
+        this.right?.let { return true }
+        return false
+    }
+} 
+
+sealed interface BinarySearchTree {
+    object Empty: BinarySearchTree {
+
+    }
+
+    data class NodeTree: BinarySearchTree {
+
+    }
+}
