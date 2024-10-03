@@ -152,16 +152,8 @@ data class TreeNode(val c: String, val left: TreeNode? = null, val right: TreeNo
         return 0
     }
 
-    fun insertLeft(newC: String): TreeNode {
-        return TreeNode(this.c, TreeNode(newC), this.right?.let {this.right.copy()} ?: null)
-    }
-
-    fun insertRight(newC: String): TreeNode {
-        return TreeNode(this.c, this.left?.let {this.left.copy()} ?: null, TreeNode(newC))
-    }
-
     fun copy(): TreeNode {
-        return TreeNode(this.c, this.left?.let {this.left.copy()} ?: null, this.right?.let {this.right.copy()} ?: null) 
+        return TreeNode(this.c, this.left?.let {this.left.copy(newNode)} ?: null, this.right?.let {this.right.copy(newNode)} ?: null)
     }
 
     fun hasLeft(): Boolean {
@@ -172,6 +164,16 @@ data class TreeNode(val c: String, val left: TreeNode? = null, val right: TreeNo
     fun hasRight(): Boolean {
         this.right?.let { return true }
         return false
+    }
+
+    fun safeLeft(): TreeNode {
+        this.left?.let { return this.left }
+        error(Exception("this.left does not exist"))
+    }
+
+    fun safeRight(): TreeNode {
+        this.right?.let { return this.right }
+        error(Exception("this.right does not exist"))
     }
 } 
 
@@ -202,9 +204,7 @@ sealed interface BinarySearchTree {
 
     data class NodeTree(var root: TreeNode): BinarySearchTree {
         override fun insert(c: String): BinarySearchTree {
-            val newNode = TreeNode(c)
-            val newTree = NodeTree(newNode)
-            return newTree
+            
         }
 
         override fun size(): Int {
