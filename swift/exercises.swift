@@ -196,8 +196,16 @@ indirect enum BinarySearchTree: CustomStringConvertible {
         switch self {
             case .empty:
                 return 0
-            case .nodeTree(_, let count):
-                return count
+            case .nodeTree(let tree, let count):
+                //return count 
+
+                var totalCount: Int = 0
+                for string in tree {
+                    if (string != "None") {
+                        totalCount += 1
+                    }
+                }
+                return totalCount
         }
     }
 
