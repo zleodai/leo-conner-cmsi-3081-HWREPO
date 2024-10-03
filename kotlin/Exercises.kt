@@ -136,52 +136,18 @@ class Quaternion(val a: Double, val b: Double, val c: Double, val d: Double) {
     }
 }
 
-data class TreeNode(val c: String, val left: TreeNode? = null, val right: TreeNode? = null): Comparable<TreeNode> {
-    override operator fun equals(a: Any?): Boolean {
-        if (a is TreeNode) { return this.c == a.c }
-        return false
-    }
-
-    override operator fun compareTo(a: TreeNode): Int {
-        if (this.c.get(0).code > a.c.get(0).code) return 1
-        if (this.c.get(0).code < a.c.get(0).code) return -1
-        return 0
-    }
-
-    fun copy(): TreeNode {
-        return TreeNode(this.c, this.left?.let {this.left.copy(newNode)} ?: null, this.right?.let {this.right.copy(newNode)} ?: null)
-    }
-
-    fun hasLeft(): Boolean {
-        this.left?.let { return true }
-        return false
-    }
-
-    fun hasRight(): Boolean {
-        this.right?.let { return true }
-        return false
-    }
-
-    fun safeLeft(): TreeNode {
-        this.left?.let { return this.left }
-        error(Exception("this.left does not exist"))
-    }
-
-    fun safeRight(): TreeNode {
-        this.right?.let { return this.right }
-        error(Exception("this.right does not exist"))
-    }
-} 
-
 sealed interface BinarySearchTree {
     fun insert(c: String): BinarySearchTree
     fun size(): Int
     fun contains(c: String): Boolean
 
+    fun parent(i: Int): Int { return i/2 }
+    fun leftChild(i: Int): Int { return i*2 }
+    fun rightChild(i: Int): Int { return i*2 +1 }
+
     object Empty: BinarySearchTree {
         override fun insert(c: String): BinarySearchTree {
-            val newNode = TreeNode(c)
-            val newTree = NodeTree(newNode)
+            val newTree = NodeTree(listOf("None", c), 1)
             return newTree
         }
 
@@ -198,21 +164,72 @@ sealed interface BinarySearchTree {
         }
     }
 
-    data class NodeTree(var root: TreeNode): BinarySearchTree {
+    data class NodeTree(val tree: List<String>, val count: Int): BinarySearchTree {
         override fun insert(c: String): BinarySearchTree {
-            
+            var newTree: MutableList<String> = tree.toMutableList()
+            var insertIndexFound: Boolean = false
+            var currentIndex: Int = 1
+
+            while (!insertIndexFound) {
+                if (newTree[currentIndex].get(0).code > c.get(0).code) {
+                    currentIndex = leftChild(currentIndex)
+                } else {
+                    currentIndex = rightChild(currentIndex)
+                }
+
+                if (currentIndex >= newTree.size) {
+                    val sizeIncreaseNeeded: Int = currentIndex - newTree.size +1
+                    newTree.addAll(List(sizeIncreaseNeeded) {"None"})
+                }
+
+                if (newTree[currentIndex] == "None") {
+                    insertIndexFound = true
+                }
+            }
+            newTree[currentIndex] = c
+
+            return NodeTree(newTree.toList(), count +1)
         }
 
         override fun size(): Int {
-            return 0
+            return count
         }
 
         override fun contains(c: String): Boolean {
-            return false
+            return tree.contains(c)
         }
         
         override fun toString(): String {
-            return "()"
+            var outputString: String = tree[1]
+            if (tree.size > 2 && tree[2] != "None") {
+                outputString = toStringHelper(outputString, 2)
+            }
+            if (tree.size > 3 && tree[3] != "None") {
+                outputString = toStringHelper(outputString, 3)
+            }
+            return "(" + outputString + ")"
+        }
+
+        fun toStringHelper(c: String, i: Int): String {
+            val parentStringIndex = c.indexOf(tree[parent(i)])
+            var outputString: String = ""
+
+            if (i == leftChild(parent(i))) {
+                val insertingString = "(".plus(tree[i]).plus(")")
+                outputString = c.substring(0, parentStringIndex).plus(insertingString).plus(c.substring(parentStringIndex))
+            } else {
+                val insertingString = "(".plus(tree[i]).plus(")")
+                outputString = c.substring(0, parentStringIndex +1).plus(insertingString).plus(c.substring(parentStringIndex +1))
+            }
+
+            if (leftChild(i) < tree.size && tree[leftChild(i)] != "None") {
+                outputString = toStringHelper(outputString, leftChild(i))
+            }
+            if (rightChild(i) < tree.size && tree[rightChild(i)] != "None") {
+                outputString = toStringHelper(outputString, rightChild(i))
+            }
+
+            return outputString
         }
     }
 }
