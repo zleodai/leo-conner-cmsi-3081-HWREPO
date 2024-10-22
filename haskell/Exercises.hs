@@ -1,7 +1,15 @@
 module Exercises
     ( change,
       firstThenApply,
-      powers
+      powers,
+      meaningfulLineCount,
+      Shape(Box, Sphere),
+      volume,
+      surfaceArea,
+      BST(Empty, Node),
+      size,
+      inorder,
+      insert
     ) where
 
 import qualified Data.Map as Map
@@ -30,8 +38,52 @@ numsFrom n = n : numsFrom (n + 1)
 powers :: Integer -> [Integer]
 powers n = map (n^) (numsFrom 0) 
 
--- Write your line count function here
+trim :: String -> String
+trim = f . f
+    where f = reverse . dropWhile isSpace
 
--- Write your shape data type here
+meaningfulLineCount :: FilePath -> IO Int
+meaningfulLineCount filePath = do
+    contents <- readFile filePath
+    return $ length $ filter meaningfulLine $ lines contents
+    where
+        meaningfulLine line = not (all isSpace line) && not ("#" `isPrefixOf` trim line)
+    
+data Shape 
+    = Sphere Double 
+    | Box Double Double Double
+    deriving (Eq, Show)
 
--- Write your binary search tree algebraic type here
+volume :: Shape -> Double
+volume (Sphere r) = (4 / 3) * pi * r^3
+volume (Box l w h) = l * w * h
+
+surfaceArea :: Shape -> Double
+surfaceArea (Sphere r) = 4 * pi * r^2
+surfaceArea (Box l w h) = 2 * l * w + 2 * l * h + 2 * h * w
+
+data BST a
+    = Empty
+    | Node a (BST a) (BST a)
+  
+size :: BST a -> Int
+size Empty = 0
+size (Node _ left right) = 1 + size left + size right
+
+inorder :: BST a -> [a]
+inorder Empty = []
+inorder (Node value left right) = inorder left ++ [value] ++ inorder right
+
+insert :: Ord a => a -> BST a -> BST a
+insert value Empty = Node value Empty Empty
+insert value (Node nodeValue left right)
+    | value < nodeValue = Node nodeValue (insert value left) right
+    | value > nodeValue = Node nodeValue left (insert value right)
+    | otherwise = Node nodeValue left right
+
+removeExtraParen :: String -> String
+removeExtraParen f = unpack (replace (pack "()") (pack "") (pack f))
+instance (Show a) => Show (BST a) where
+    show :: Show a => BST a -> String
+    show Empty = "()"
+    show (Node value left right) = removeExtraParen ("(" ++ show left ++ show value ++ show right ++ ")")
