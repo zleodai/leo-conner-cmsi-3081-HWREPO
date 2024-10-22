@@ -9,7 +9,8 @@ module Exercises
       BST(Empty, Node),
       size,
       inorder,
-      insert
+      insert,
+      contains
     ) where
 
 import qualified Data.Map as Map
@@ -17,6 +18,7 @@ import Data.Text (pack, unpack, replace)
 import Data.List(isPrefixOf, find)
 import Data.Char(isSpace)
 import Data.Type.Equality (apply)
+import Distribution.Simple.Setup (falseArg)
 
 change :: Integer -> Either String (Map.Map Integer Integer)
 change amount
@@ -32,11 +34,11 @@ change amount
 
 firstThenApply :: [a] -> (a -> Bool) -> (a -> b) -> Maybe b
 firstThenApply [] _ _ = Nothing
-firstThenApply x p f = f <$> find p x
+firstThenApply array predicate modifier = modifier <$> find predicate array
 
 numsFrom n = n : numsFrom (n + 1)
 powers :: Integer -> [Integer]
-powers n = map (n^) (numsFrom 0) 
+powers base = map (base^) (numsFrom 0) 
 
 trim :: String -> String
 trim = f . f
@@ -73,6 +75,13 @@ size (Node _ left right) = 1 + size left + size right
 inorder :: BST a -> [a]
 inorder Empty = []
 inorder (Node value left right) = inorder left ++ [value] ++ inorder right
+
+contains :: Ord a => a -> BST a -> Bool
+contains _ Empty = False
+contains item (Node nodeValue left right)
+    | item < nodeValue = contains item left
+    | item > nodeValue = contains item right
+    | otherwise = True
 
 insert :: Ord a => a -> BST a -> BST a
 insert value Empty = Node value Empty Empty
