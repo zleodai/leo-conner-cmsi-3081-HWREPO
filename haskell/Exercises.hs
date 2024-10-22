@@ -1,12 +1,14 @@
 module Exercises
     ( change,
-      -- put the proper exports here
+      firstThenApply,
+      powers
     ) where
 
 import qualified Data.Map as Map
 import Data.Text (pack, unpack, replace)
 import Data.List(isPrefixOf, find)
 import Data.Char(isSpace)
+import Data.Type.Equality (apply)
 
 change :: Integer -> Either String (Map.Map Integer Integer)
 change amount
@@ -20,9 +22,13 @@ change amount
                 (count, newRemaining) = remaining `divMod` d
                 newCounts = Map.insert d count counts
 
--- Write your first then apply function here
+firstThenApply :: [a] -> (a -> Bool) -> (a -> b) -> Maybe b
+firstThenApply [] _ _ = Nothing
+firstThenApply x p f = f <$> find p x
 
--- Write your infinite powers generator here
+numsFrom n = n : numsFrom (n + 1)
+powers :: Integer -> [Integer]
+powers n = map (n^) (numsFrom 0) 
 
 -- Write your line count function here
 
