@@ -1,3 +1,7 @@
 #include "string_stack.h"
+#include <string.h>
 
-// Complete your string stack implementation in this file.
+struct _Stack {
+    char *internalArray[];
+    
+};
