@@ -4,17 +4,35 @@ pub struct Stack<T> {
 }
 
 impl<T> Stack<T> {
-    // Implement new
+    fn new() -> Stack::<T> {
+        return Stack::<T> { items: Vec::<T>::new() };
+    }
 
-    // Implement push
+    fn push(&mut self, value: T) {
+        self.items.push(value);
+    }
 
-    // Implement pop
+    fn pop(&mut self) -> Option<T> {
+        if self.items.len() < 1 {
+            return None;
+        }
+        return self.items.pop();
+    }
+    
+    fn peek(&self) -> Option<&T> {
+        if self.items.len() < 1 {
+            return None;
+        }        
+        return Some(&self.items[self.items.len() -1]);
+    }
 
-    // Implement peek
+    fn is_empty(&self) -> bool {
+        return self.items.is_empty();
+    }
 
-    // Implement is_empty
-
-    // Implement len
+    fn len(&self) -> i32 {
+        return self.items.len() as i32;
+    }
 }
 
 #[cfg(test)]
