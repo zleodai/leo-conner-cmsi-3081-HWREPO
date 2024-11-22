@@ -15,6 +15,8 @@
 #define MAX_CAPACITY 32768
 #define MAX_ELEMENT_BYTE_SIZE 256
 
+
+
 // Make the representation of the stack unknown to code that uses it
 typedef struct _Stack* stack;
 
