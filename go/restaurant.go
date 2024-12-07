@@ -23,8 +23,7 @@ type Order struct {
 
 var nextId atomic.Uint64
 
-func cook(name string, waiter chan *Order, wg *sync.WaitGroup) {
-	defer wg.Done()
+func cook(name string, waiter chan *Order) {
 	log.Println(name, "starting work")
 	for {
 		order, ok := <-waiter
@@ -57,21 +56,20 @@ func customer(name string, waiter chan *Order, wg *sync.WaitGroup) {
 		case <-time.After(7 * time.Second):
 			do(5, name, "waiting too long, abandoning order", order.id)
 		}
+		close(order.reply)
 	}
 	log.Println(name, "going home")
 }
 
 func main() {
-	rand.Seed(time.Now().UnixNano())
 
-	customers := [10]string{"Ani", "Bai", "Cat", "Dao", "Eve", "Fay", "Gus", "Hua", "Iza", "Jai"}
+	customers := [...]string{"Ani", "Bai", "Cat", "Dao", "Eve", "Fay", "Gus", "Hua", "Iza", "Jai"}
 	waiter := make(chan *Order, 3)
 	var restaurant sync.WaitGroup
 
 	cookNames := [3]string{"Remy", "Colette", "Linguini"}
 	for _, name := range cookNames {
-		restaurant.Add(1)
-		go cook(name, waiter, &restaurant)
+		go cook(name, waiter)
 	}
 
 	for _, name := range customers {
@@ -81,6 +79,5 @@ func main() {
 
 	restaurant.Wait()
 	close(waiter)
-
 	log.Println("Restaurant closing")
 }
